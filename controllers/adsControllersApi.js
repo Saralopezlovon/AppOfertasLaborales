@@ -1,13 +1,15 @@
 const Ad = require('../models/adModel')
 
 const ads = {
+
     getAllAds : async (req,res)=>{
         try{
-
+            
             const allAds = await Ad.find()
             res.status(200).json({
                 status:'sucess',
-                data: {ads : allAds}
+                resultNumber: allAds.length,
+                data: {ads : allAds},
             })
 
         }catch(err){

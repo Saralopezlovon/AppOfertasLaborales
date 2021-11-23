@@ -1,0 +1,13 @@
+doctype html
+html
+   head
+      link(rel="stylesheet", href="./styles/home.css")
+      link(rel="stylesheet", href="./styles/normalize.css")
+
+      title="HOME"
+   body
+    fieldset
+        h1 #{name}
+        form(action='/', method='POST')
+            input(type='text', name='title', placeholder='Buscar por titulo') 
+            input(type='submit', value='Buscar')
