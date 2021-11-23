@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require ('dotenv');
+const dotenv = require ('dotenv'); //Aqui llamamos al módulo dotenv para usar variables de entorno.
 dotenv.config({path:'.env'});
 
 const app = require('./app')

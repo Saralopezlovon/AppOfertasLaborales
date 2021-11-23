@@ -1,17 +1,42 @@
 const Ad = require('../models/adModel')
 
 const ads = {
-    getAllAds : (req,res)=>{
-        res.status(200).json({
-            status:'sucess',
-            data: {ads : 'Aqui irían los anuncios'}
-        })
+    getAllAds : async (req,res)=>{
+        try{
+
+            const allAds = await Ad.find()
+            res.status(200).json({
+                status:'sucess',
+                data: {ads : allAds}
+            })
+
+        }catch(err){
+
+            res.status(400).json({
+                status:"fail",
+                message: err
+            })
+
+        }
     },
-    createAd : (req,res)=>{
-        res.status(201).json({
-            status:'sucess',
-            data: {ads : 'Anuncio agregado con éxito'}
-        })
+
+    createAd : async(req,res)=>{
+
+        try{
+
+            const newAd = await Ad.create(req.body);
+
+            res.status(201).json({
+                status:'sucess',
+                data: {ads : newAd}
+            })
+    
+        }catch(err){
+            res.status(400).json({
+                status:"fail",
+                message: err
+            })
+        }
 
     }
 }
