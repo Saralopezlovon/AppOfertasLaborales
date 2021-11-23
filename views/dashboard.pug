@@ -1,0 +1,19 @@
+doctype html
+html
+   head
+      link(rel="stylesheet", href="./styles/styles.css")
+      link(rel="stylesheet", href="./styles/normalize.css")
+
+      title="Dashboard"
+   body
+    fieldset
+        h1 #{name}
+        form(action='/api/ads', method='POST')
+            input(type='text', name='title', placeholder='Título del anuncio')
+            input(type='text', name='company', placeholder='Empresa')
+            input(type='text', name='location', placeholder='Ubicación del empleo')
+            input(type='text', name='salary', placeholder='Salario')
+            input(type='text', name='description', placeholder='Descripción del empleo')
+            input(type='text', name='logo', placeholder='Logo de la empresa')
+            input(type='text', name='link', placeholder='Enlace al empleo') 
+            input(type='submit', value='Buscar')

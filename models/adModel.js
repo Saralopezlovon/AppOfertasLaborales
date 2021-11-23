@@ -5,51 +5,53 @@ const adSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener un titulo'],
-        trim:true
+        trim: true,
     },
 
     company: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener una empresa'],
-        trim:true
+        trim: true,
     },
 
     location: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener una ubicación'],
-        trim:true
+        trim: true,
     },
 
     salary: {
         type: String,
-        required: [true, 'La oferta de trabajo debe tener un salario establecido'],
-        trim:true
+        required: [
+            true,
+            'La oferta de trabajo debe tener un salario establecido',
+        ],
+        trim: true,
     },
     description: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener una descripción'],
-        trim:true
+        trim: true,
     },
 
     createdAt: {
         type: Date,
-        default: Date.now(),      
-        trim: true
+        default: Date.now(),
+        trim: true,
     },
 
     imagen: {
-        type: String,      
+        type: String,
         required: [true, 'La oferta de trabajo debe tener una imagen'],
-        trim: true
+        trim: true,
     },
 
     link: {
-        type: String,        
+        type: String,
         required: [true, 'La oferta de trabajo debe tener un enlace'],
-        trim: true
+        trim: true,
     },
-    
-})
+});
 
-const Ad = mongoose.model('Ad', adSchema) //Modelo de mongoose siempre enmpieza en mayúsculas
-module.exports = Ad
+const Ad = mongoose.model('Ad', adSchema); //Modelo de mongoose siempre enmpieza en mayúsculas
+module.exports = Ad;
