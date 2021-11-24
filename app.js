@@ -1,6 +1,7 @@
 //MODULES
 const express = require ('express');
 const app = express();
+var path = require('path')
 const adsApi=require('./controllers/adsControllersApi')
 const adsWeb=require('./controllers/adsControllersWeb')
 
@@ -22,7 +23,11 @@ app.set('view engine', 'pug');
 app.set('views','./views');
 
 //MIDDLEWARES
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 
 //EXPORTAR APP PARA CONEXIÓN CON EL SERVIDOR

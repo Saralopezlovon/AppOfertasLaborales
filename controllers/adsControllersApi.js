@@ -6,12 +6,14 @@ const ads = {
         try{
             
             const allAds = await Ad.find()
-            res.status(200).json({
-                status:'sucess',
-                resultNumber: allAds.length,
-                data: {ads : allAds},
-            })
-
+            // res.status(200).json({
+            //     status:'sucess',
+            //     resultNumber: allAds.length,
+            //     data: {ads : allAds},
+            // })
+            
+            res.render('dashboard', {allAds})
+            // console.log(allAds[0].title)
         }catch(err){
 
             res.status(400).json({

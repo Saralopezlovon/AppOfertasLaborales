@@ -21,9 +21,9 @@
     "express": "^4.17.1",
     "mongoose": "^6.0.13",
     "node-fetch": "^2.6.6",
+    "path": "^0.12.7",
     "pug": "^3.0.2"
   },
-
   "devDependencies": {
     "dotenv": "^10.0.0"
   }

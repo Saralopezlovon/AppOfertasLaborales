@@ -1,0 +1,20 @@
+doctype html
+html
+   head
+      link(rel="stylesheet",href="./styles/dashboard.css")
+      link(rel="stylesheet",href="./styles/normalize.css")
+      title="Ofertas"
+   body
+      div 
+         h1 Mis ofertas creadas:
+         section.card
+         each ads in allAds
+            div.container            
+               img.image(src=ads.imagen, alt=ads.company, style='width:100%')
+               h2 Titulo #{ads.title}
+               p Empresa: #{ads.company} 
+               p Ubicación: #{ads.location}
+               p Salario: #{ads.salary}
+               p Descripción: #{ads.description}
+               p Oferta creada: #{ads.createdAt}
+      include ./footer.pug
