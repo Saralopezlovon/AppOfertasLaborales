@@ -5,14 +5,14 @@ const ads = {
     getAllAds : async (req,res)=>{
         try{
             
-            const allAds = await Ad.find()
+            const allAds = await Ad.find();
             // res.status(200).json({
             //     status:'sucess',
             //     resultNumber: allAds.length,
             //     data: {ads : allAds},
             // })
             
-            res.render('dashboard', {allAds})
+            res.status(200).render('dashboard', {allAds})
             // console.log(allAds[0].title)
         }catch(err){
 
