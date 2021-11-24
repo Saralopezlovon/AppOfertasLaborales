@@ -11,19 +11,19 @@ html
    include ./header.pug 
       div 
          h1 Ofertas laborales encontradas: 
-         h3 Filtros aplicados: 
-
+         h3 Filtros aplicados:
+          
+      each ad in Ads
       section.card
          img(src=#{ad.imagen}, alt='Avatar', style='width:100%')
-         .container
-            h2
-               b Titulo #{ad.title}
-               img(src=ad.imagen)
-               p Empresa: #{ad.company} 
-               p Ubicación: #{ad.location}
-               p Salario: #{ad.salary}
-               p Descripción: #{ad.description}
-               p Oferta creada: #{ad.createdAt}
+         div.container            
+            h2 Titulo #{ad.title}
+            img(src=ad.imagen)
+            p Empresa: #{ad.company} 
+            p Ubicación: #{ad.location}
+            p Salario: #{ad.salary}
+            p Descripción: #{ad.description}
+            p Oferta creada: #{ad.createdAt}
 
 
    include ./footer.pug
