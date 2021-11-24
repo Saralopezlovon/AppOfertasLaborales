@@ -1,3 +1,69 @@
 body{
-    background-color: aqua;
+    border:1px solid red;
+    width: 100%;
+}
+
+/* Buscador */
+
+.search{
+    border:1px solid blue; 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formSearch{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleSearch{
+    margin-top: 0px;
+    font-size: 50px;
+}
+
+.titleSearched{
+    width: 300px;
+    font-size: 30px;
+    border:1px solid gray;
+    margin-bottom: 20px;
+}
+
+.btnSearch{
+    width: 300px;
+    font-size: 30px;
+
+}
+
+/* Tarjetas ofertas de empleo */
+
+.results{
+    border:1px solid blue;
+}
+
+.adContainer{
+    border:1px solid blue;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagen{
+    border:1px solid blue;
+    height: 200px;
+    border-radius: 99%;
+}
+
+.ad{
+    border:1px solid blue;
+    margin:0px;
+    width: 680px;
+    
+}
+
+
+li{
+    list-style: none;
+    font-size: 30px;
 }
