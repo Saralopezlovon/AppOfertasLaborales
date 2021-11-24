@@ -13,10 +13,17 @@ app.use(express.json());
 //WEB ROUTES
 
 app.get('/', adsWeb.getHome)
+app.get('/register',adsWeb.getRegister)
+app.get('/login',adsWeb.getLogin)
+
+
+
 
 //API ROUTES
 app.get('/api/ads', adsApi.getAllAds)
 app.post('/api/ads', adsApi.createAd)
+
+
 
 //PUG
 app.set('view engine', 'pug');
