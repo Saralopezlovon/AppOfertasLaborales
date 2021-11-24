@@ -22,6 +22,32 @@ const adsWeb = {
             })
 
         }
+    },
+
+    getRegister: async(req,res)=>{
+        try{
+            res.status(200).render('register')
+
+        }catch(err){
+            res.status(400).json({
+                status:"fail",
+                message: err
+            })
+
+        }
+    },
+
+    getLogin: async(req,res)=>{
+        try{
+            res.status(200).render('login')
+
+        }catch(err){
+            res.status(400).json({
+                status:"fail",
+                message: err
+            })
+
+        }
     }
 
 }

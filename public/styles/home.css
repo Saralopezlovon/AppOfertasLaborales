@@ -31,6 +31,7 @@ body{
 .btnSearch{
     width: 300px;
     font-size: 30px;
+    border:1px solid gray;
 
 }
 
@@ -59,9 +60,7 @@ body{
     margin-top:25px;
     margin-bottom: 25px;
     width: 680px;
-    
 }
-
 
 li{
     list-style: none;
