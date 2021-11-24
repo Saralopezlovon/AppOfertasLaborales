@@ -4,10 +4,25 @@ html
       link(rel="stylesheet", href="./styles/home.css")
       link(rel="stylesheet", href="./styles/normalize.css")
 
-      title="HOME"
+      title="Home"
    body
-    fieldset
-        h1 #{name}
-        form(action='/', method='POST')
-            input(type='text', name='title', placeholder='Buscar por titulo') 
-            input(type='submit', value='Buscar')
+    section.search    
+        h1.titleSearch Buscar ofertas
+        form.formSearch(action='/', method='POST')
+            input.titleSearched(type='text', name='titleSearched', placeholder='Buscar oferta de empleo') 
+            input.btnSearch(type='submit', value='Buscar')
+    section.results
+        div.adContainer
+            img.imagen(src=urlImage alt=nameCompany)
+            ul.ad
+                li.title #{title}
+                li.nameCompany #{nameCompany}
+                li.location #{titleAd}
+                li.salary #{salary}€
+                li.description #{description}
+                li.date Fecha anuncio: #{date}
+                li.link Más información: #{link}
+
+    div
+
+       
