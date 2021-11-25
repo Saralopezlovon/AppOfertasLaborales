@@ -1,0 +1,84 @@
+body{
+    width: 100%;
+    
+}
+
+/*Login*/
+
+.loginEmail{
+    display:flex;
+    flex-direction: column;
+    margin-left:25px;    
+}
+
+.titleSectionEmail{
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+.otherRoute{
+    font-size: 25px;
+}
+
+.formLogin{
+    display:flex;
+    flex-direction: column;
+    width: 300px;  
+}
+
+
+.email{
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    border:1px solid gray;
+}
+
+.password{
+    margin-bottom: 10px;
+    font-size: 30px;
+    border:1px solid gray;
+}
+
+.btnLogin{
+    margin-bottom: 10px;
+    font-size: 30px;
+    border:1px solid gray;
+}
+
+/*Otros*/
+
+.loginOthers{
+    margin-left: 25px;
+}
+
+.fbContainer{
+    border:1px solid gray;
+    width: 600px;
+    margin-top:20px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.googleContainer{
+    border:1px solid gray;
+    width: 600px;
+    margin-top:10px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconImage{    
+    height: 100px;
+    border-radius: 99%;
+    margin:10px;
+}
+
+
+.rsLink{
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}

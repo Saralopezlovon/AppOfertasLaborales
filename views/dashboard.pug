@@ -1,0 +1,32 @@
+doctype html
+html
+   head
+      link(rel="stylesheet", href="./styles/styles.css")
+      link(rel="stylesheet",href="./styles/dashboard.css")
+      link(rel="stylesheet",href="./styles/normalize.css")
+      title="Ofertas"
+   body
+      div 
+         h1 Crear anuncio
+            form(action='/api/ads', method='POST')
+               input(type='text', name='title', placeholder='Título del anuncio')
+               input(type='text', name='company', placeholder='Empresa')
+               input(type='text', name='location', placeholder='Ubicación del empleo')
+               input(type='text', name='salary', placeholder='Salario')
+               input(type='text', name='description', placeholder='Descripción del empleo')
+               input(type='text', name='logo', placeholder='Logo de la empresa')
+               input(type='text', name='link', placeholder='Enlace al empleo') 
+               input(type='submit', value='Crear oferta')
+      div   
+         h2 Mis ofertas creadas:
+         section.card
+         each ads in allAds
+            div.container            
+               img.image(src=ads.imagen, alt=ads.company, style='width:100%')
+               h2 Titulo #{ads.title}
+               p Empresa: #{ads.company} 
+               p Ubicación: #{ads.location}
+               p Salario: #{ads.salary}
+               p Descripción: #{ads.description}
+               p Oferta creada: #{ads.createdAt}             
+      include ./footer.pug
