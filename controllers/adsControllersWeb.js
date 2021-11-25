@@ -1,3 +1,4 @@
+const Ad = require('../models/adModel');
 
 
 const adsWeb = { 
@@ -43,14 +44,44 @@ const adsWeb = {
 
         }catch(err){
             res.status(400).json({
-                status:"fail",
-                message: err
-            })
-
+                status: 'fail',
+                message: err,
+            });
+        }
+    },
+    getFavorites: async (req, res) => {
+        try {
+            res.status(200).render('favorites');
+        } catch (err) {
+            res.status(400).json({
+                status: 'fail',
+                message: err,
+            });
+        }
+    },
+    getProfiles: async (req, res) => {
+        try {
+            res.status(200).render('profiles');
+        } catch (err) {
+            res.status(400).json({
+                status: 'fail',
+                message: err,
+            });
+        }
+    },
+    getDashboard: async (req, res) => {
+        try {
+            const allAds = await Ad.find();
+            res.status(200).render('dashboard', {allAds});
+        } catch (err) {
+            res.status(400).json({
+                status: 'fail',
+                message: err,
+            });
         }
     }
 
-}
 
+};
 
 module.exports = adsWeb;
