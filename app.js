@@ -4,8 +4,10 @@ const app = express();
 const adsApi = require('./controllers/adsControllersApi');
 const adsWeb = require('./controllers/adsControllersWeb');
 
+
 //MIDDLEWARES
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 
 //WEB ROUTES
 
@@ -13,6 +15,7 @@ app.get('/', adsWeb.getHome);
 app.get('/favorites', adsWeb.getFavorites);
 app.get('/profiles', adsWeb.getProfiles);
 app.get('/dashboard', adsWeb.getDashboard);
+
 
 //API ROUTES
 app.get('/api/ads', adsApi.getAllAds);

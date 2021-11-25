@@ -31,14 +31,16 @@ const adsWeb = {
     },
     getDashboard: (req, res) => {
         try {
-            res.status(200).render('dashboard', { name: 'Ricardo' });
+            res.status(200).render('createAd', { name: 'Ricardo' });
         } catch (err) {
             res.status(400).json({
                 status: 'fail',
                 message: err,
             });
         }
-    },
+    }
+
+
 };
 
 module.exports = adsWeb;

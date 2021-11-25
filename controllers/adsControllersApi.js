@@ -18,6 +18,7 @@ const ads = {
     },
 
     createAd: async (req, res) => {
+        console.log(req.body.title)
         try {
             const newAd = await Ad.create({
                 title: req.body.title,
@@ -28,10 +29,9 @@ const ads = {
                 imagen: req.body.logo,
                 link: req.body.link,
             });
-            res.status(201).json({
-                status: 'sucess',
-                data: { ads: JSON.stringify(newAd) },
-            });
+
+            res.status(200).redirect('/dashboard')
+            
         } catch (err) {
             res.status(400).json({
                 status: 'fail',
