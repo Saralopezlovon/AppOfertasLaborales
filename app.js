@@ -24,7 +24,6 @@ app.post('/api/ads', adsApi.createAd);
 //PUG
 app.set('view engine', 'pug');
 app.set('views', './views');
-
 //MIDDLEWARES
 app.use(express.static('public'));
 
