@@ -1,19 +1,15 @@
 const Ad = require('../models/adModel');
 
 const ads = {
+    getAllAds: async (req, res) => {
+        try {
+            const allAds = await Ad.find();
 
-    getAllAds : async (req,res)=>{
-        try{
-            
-            const allAds = await Ad.find();  
-            
-            res.status(200).render('dashboard', {allAds})
-
-        }catch(err){
-
+            res.status(200).render('dashboard', { allAds });
+        } catch (err) {
             res.status(400).json({
                 status: 'fail',
-                message: err
+                message: err,
             });
         }
     },
@@ -30,8 +26,7 @@ const ads = {
                 link: req.body.link,
             });
 
-            res.status(200).redirect('/dashboard')
-            
+            res.status(200).redirect('/dashboard');
         } catch (err) {
             res.status(400).json({
                 status: 'fail',
