@@ -17,7 +17,13 @@ html
                input(type='text', name='logo', placeholder='Logo de la empresa')
                input(type='text', name='link', placeholder='Enlace al empleo') 
                input(type='submit', value='Crear oferta')
-      div   
+      div
+         h1 Borrar anuncio - Añada su id
+            form(action='/api/ads/', method='GET')
+               input(type='text', name='adTitle', placeholder='Añade un titulo')
+               input(type='submit', value='Eliminar oferta')
+              
+
          h2 Mis ofertas creadas:
          section.card
          each ads in allAds

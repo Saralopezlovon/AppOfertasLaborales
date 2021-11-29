@@ -21,9 +21,13 @@ app.get('/profiles', adsWeb.getProfiles);
 app.get('/dashboard', adsWeb.getDashboard);
 
 
+
 //API ROUTES
 app.get('/api/ads', adsApi.getAllAds);
 app.post('/api/ads', adsApi.createAd);
+app.get('/api/ads', adsApi.getOneAd);
+
+// app.delete('/api/ads/:id', adsApi.deleteAd)
 
 //PUG
 app.set('view engine', 'pug');
