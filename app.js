@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const adsApi = require('./controllers/adsControllersApi');
 const adsWeb = require('./controllers/adsControllersWeb');
+const AppError = require('./utils/appError');
+const errMiddleware = require('./middlewares/errorMiddleware')
 
 
 //MIDDLEWARES
@@ -23,14 +25,20 @@ app.get('/dashboard', adsWeb.getDashboard);
 app.get('/api/ads', adsApi.getAllAds);
 app.post('/api/ads', adsApi.createAd);
 
-
-
 //PUG
 app.set('view engine', 'pug');
 app.set('views', './views');
+
 //MIDDLEWARES
 app.use(express.static('public'));
-// app.use(express.static(path.join(__dirname, 'public')));
+
+//Si no encuentra la ruta buscada aparece este error
+app.all('*', (req, res, next)=>{
+    next(new AppError (`No se encuentra esta ruta:${req.originalUrl}`, 404))
+})
+
+app.use(errMiddleware)
+
 
 
 
