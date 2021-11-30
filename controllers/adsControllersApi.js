@@ -22,8 +22,8 @@ const ads = {
     }),
 
     updateAd: catchAsync(async (req, res) => {
-        const ad = await Ad.findByIdAndUpdate(
-            req.body.idUpdate,
+        const ad = await Ad.updateOne(
+            { adID: parseInt(req.body.idUpdate, 10) },
             {
                 title: req.body.title,
                 company: req.body.company,
@@ -42,7 +42,7 @@ const ads = {
     }),
 
     deleteAd: catchAsync(async (req, res) => {
-        await Ad.findByIdAndDelete(req.body.inputID);
+        await Ad.deleteOne({ adID: parseInt(req.body.idDelete, 10) });
         res.status(204).redirect('/dashboard');
     }),
 };

@@ -17,10 +17,6 @@ html
                input(type='text', name='logo', placeholder='Logo de la empresa')
                input(type='text', name='link', placeholder='Enlace al empleo')
                input(type='submit', value='Crear oferta')
-         h1 Borrar anuncio
-            form(action='/ads/delete', method='POST')
-               input(type='text', name='inputID', placeholder='ID del anuncio')
-               input(type='submit', value='Borrar anuncio')
          h1 Editar anuncio
             form(action='/ads/update', method='POST')
                input(type='text', name='idUpdate', placeholder='ID del anuncio a editar')
@@ -32,6 +28,10 @@ html
                input(type='text', name='logo', placeholder='Logo de la empresa')
                input(type='text', name='link', placeholder='Enlace al empleo')
                input(type='submit', value='Editar oferta')
+         h1 Borrar anuncio
+            form(action='/ads/delete', method='POST')
+               input(type='text', name='idDelete', placeholder='ID del anuncio')
+               input(type='submit', value='Borrar anuncio')
       div             
          h2 Mis ofertas creadas:
          section.card
