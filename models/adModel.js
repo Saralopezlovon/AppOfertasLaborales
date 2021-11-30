@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 //SCHEMA
 const adSchema = new mongoose.Schema({
@@ -34,13 +35,13 @@ const adSchema = new mongoose.Schema({
         trim: true,
     },
 
-    createdAt: {
+    createdOrUpdatedAt: {
         type: Date,
         default: Date.now(),
         trim: true,
     },
 
-    imagen: {
+    image: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener una imagen'],
         trim: true,
@@ -52,6 +53,8 @@ const adSchema = new mongoose.Schema({
         trim: true,
     },
 });
+
+adSchema.plugin(AutoIncrement, { inc_field: 'adID' });
 
 const Ad = mongoose.model('Ad', adSchema); //Modelo de mongoose siempre enmpieza en mayúsculas
 module.exports = Ad;
