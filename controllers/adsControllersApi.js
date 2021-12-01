@@ -22,20 +22,24 @@ const ads = {
     }),
 
     updateAd: catchAsync(async (req, res) => {
+
+        const entries = Object.keys(req.body)
+        const updates = {}
+
+        for (let i = 0; i < entries.length; i++) {
+            if(!Object.values(req.body)[i]) {
+                continue
+            } else {
+                updates[entries[i]] = Object.values(req.body)[i]
+            }           
+        }     
+
         const ad = await Ad.updateOne(
-            { adID: parseInt(req.body.idUpdate, 10) },
+            { adID: parseInt(req.body.idUpdate, 10) }, updates,
             {
-                title: req.body.title,
-                company: req.body.company,
-                location: req.body.location,
-                salary: req.body.salary,
-                description: req.body.description,
-                image: req.body.logo,
-                link: req.body.link,
-            },
-            {
+                upsert: true,
                 new: true,
-                runValidators: true,
+                runValidators: false,
             }
         );
         res.status(200).redirect('/dashboard');
