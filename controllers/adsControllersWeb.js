@@ -1,20 +1,12 @@
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync')
-
+const scrapingTec = require('../utils/scrapingTe')
 
 const adsWeb = { 
-
     getHome: catchAsync (async(req, res)=>{
-        res.status(200).render('home',
-         {urlImage: "https://www.eluniversal.com.mx/sites/default/files/2019/07/12/amazon.jpg",
-         title: "FullStack Developer",
-         nameCompany: "Amazon",
-         location: "España-Madrid",
-         salary: "1800",
-         description: "Importante empresa del sector ubicada en Madrid se encuentra en la búsqueda de un desarrollador Fullstack",
-         date:"24/11/2021",
-         link:"https://acortar.link/ccGwMk"
-        })        
+        const adsTec = await scrapingTec();
+        console.log(allAdsTec)
+        res.status(200).render('home', {adsTec})     
     }),
 
     getRegister: catchAsync (async(req, res)=>{

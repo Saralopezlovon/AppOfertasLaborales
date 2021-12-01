@@ -13,16 +13,12 @@ html
             input.btnSearch(type='submit', value='Buscar')
     section.results
         div.adContainer
-            img.imagen(src=urlImage alt=nameCompany)
+        each ad in adsTec
+            img.imagen(src=adImage alt=nameCompany)
             ul.ad
-                li.title #{title}
-                li.nameCompany #{nameCompany}
-                li.location #{titleAd}
-                li.salary #{salary}€
-                li.description #{description}
-                li.date Fecha anuncio: #{date}
-                li.link Más información: #{link}
-
-    div
-
-       
+                li.title #{allAdsTec.adTitle}
+                li.nameCompany #{allAdsTec.adCompany}
+                li.location #{allAdsTec.adLocation}
+                li.description #{allAdsTec.adDescription}
+                li.date Fecha anuncio: #{allAdsTec.adDate}
+                li.link Más información: #{allAdsTec.adLink}
