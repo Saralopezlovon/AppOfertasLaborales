@@ -22,7 +22,7 @@ const ads = {
             link: req.body.link,
         });
 
-        res.status(200).redirect('/dashboard');
+        res.status(200).redirect('/admin/dashboard');
     }),
 
     // Actualiza un anuncio en la BBDD de MongoDB
@@ -47,13 +47,13 @@ const ads = {
                 runValidators: false,
             }
         );
-        res.status(200).redirect('/dashboard');
+        res.status(200).redirect('/admin/dashboard');
     }),
 
     // Elimina un anuncio de la BBDD de MongoDB
     deleteAd: catchAsync(async (req, res) => {
         await Ad.deleteOne({ adID: parseInt(req.body.idDelete, 10) });
-        res.status(204).redirect('/dashboard');
+        res.status(204).redirect('/admin/dashboard');
     }),
 };
 

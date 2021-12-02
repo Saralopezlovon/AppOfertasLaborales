@@ -1,9 +1,9 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="./styles/styles.css")
-      link(rel="stylesheet",href="./styles/dashboard.css")
-      link(rel="stylesheet",href="./styles/normalize.css")
+      link(rel="stylesheet", href="../styles/styles.css")
+      link(rel="stylesheet",href="../styles/dashboard.css")
+      link(rel="stylesheet",href="../styles/normalize.css")
       title="Ofertas"
    body
       div 
@@ -18,7 +18,7 @@ html
                input(type='text', name='link', placeholder='Enlace al empleo')
                input(type='submit', value='Crear oferta')
          h1 Editar anuncio
-            form(action='/ads/update', method='POST')
+            form(action='/admin/ads/update', method='POST')
                input(type='text', name='idUpdate', placeholder='ID del anuncio a editar')
                input(type='text', name='title', placeholder='Título del anuncio')
                input(type='text', name='company', placeholder='Empresa')
@@ -29,7 +29,7 @@ html
                input(type='text', name='link', placeholder='Enlace al empleo')
                input(type='submit', value='Editar oferta')
          h1 Borrar anuncio
-            form(action='/ads/delete', method='POST')
+            form(action='/admin/ads/delete', method='POST')
                input(type='text', name='idDelete', placeholder='ID del anuncio')
                input(type='submit', value='Borrar anuncio')
       div             

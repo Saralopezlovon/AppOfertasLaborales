@@ -17,14 +17,21 @@ app.post('/', adsWeb.getAllAdsSearch);
 
 // ***** PDTE REFACTOR *****
 app.get('/register', adsWeb.getRegister);
+// app.post('/register', adsWeb.newRegister);
+
 app.get('/login', adsWeb.getLogin);
-app.post('/register', adsWeb.getRegister);
-app.post('/login', adsWeb.getLogin);
-app.get('/favorites', adsWeb.getFavorites);
-app.get('/profiles', adsWeb.getProfiles);
-app.get('/dashboard', adsWeb.getDashboard);
-app.post('/ads/delete', adsApi.deleteAd);
-app.post('/ads/update', adsApi.updateAd);
+// app.post('/login', adsWeb.doLogin);
+
+// Ruta como usuario logeado
+// app.get('/profile', adsWeb.getProfile);
+// app.get('/favorites', adsWeb.getFavorites);
+
+// Rutas del admin
+// app.get('/admin/profile', adsWeb.getProfile);
+// app.get('/admin/profiles', adsWeb.getProfiles);
+app.get('/admin/dashboard', adsWeb.getDashboard);
+app.post('/admin/ads/delete', adsApi.deleteAd);
+app.post('/admin/ads/update', adsApi.updateAd);
 
 //API ROUTES
 app.get('/api/ads', adsApi.getAllAds);
