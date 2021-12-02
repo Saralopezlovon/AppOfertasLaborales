@@ -1,7 +1,7 @@
 // MÓDULO PARA LLAMAR PUPPETEER
 const puppeteer = require('puppeteer');
 
-const scrapingTe = async () => {
+const scrapingTe = async (tag) => {
     try {
         //·················NAVEGADOR··················//
 
@@ -24,7 +24,7 @@ const scrapingTe = async () => {
             visible: true,
         });
         //Escribe texto en el input seleccionado
-        await page.type('#te', 'programador', {
+        await page.type('#te', tag, {
             delay: 200,
         });
 

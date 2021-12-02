@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 //WEB ROUTES
 
 app.get('/', adsWeb.getHome);
+app.post('/', adsWeb.getAllAdsSearch);
+
 app.get('/register', adsWeb.getRegister);
 app.get('/login', adsWeb.getLogin);
 app.get('/favorites', adsWeb.getFavorites);

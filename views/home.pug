@@ -13,12 +13,13 @@ html
             input.btnSearch(type='submit', value='Buscar')
     section.results
         div.adContainer
-        each ad in data
-            img.imagen(src=ad.image)
-            ul.ad
-                li.title #{ad.title}
-                li.nameCompany #{ad.company}
-                li.location #{ad.location}
-                li.description #{ad.description}
-                li.date Fecha anuncio: #{ad.date}
-            a.link Más información: #{ad.link}
+        if data
+            each ad in data
+                img.imagen(src=ad.image)
+                ul.ad
+                    li.title #{ad.title}
+                    li.nameCompany #{ad.company}
+                    li.location #{ad.location}
+                    li.description #{ad.description}
+                    li.date Fecha anuncio: #{ad.date}
+                a.link Más información: #{ad.link}
