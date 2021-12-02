@@ -7,8 +7,12 @@ const scrapingTe = require('../utils/scrapingTe');
 const adsWeb = {
     // Renderiza la pag "Home" y muestra los anuncios de scraping y de MongoDB
     getHome: catchAsync(async (req, res) => {
-        const allAds = await Ad.find();
-        const scrapingTeAds = await scrapingTe();
+        res.status(200).render('home');
+    }),
+
+    getAllAdsSearch: catchAsync(async (req, res) => {
+        const allAds = await Ad.find({title : req.body.titleSearched});
+        const scrapingTeAds = await scrapingTe(req.body.titleSearched);
         const data = [...scrapingTeAds, ...allAds]; // Usamos Spread Operator para combinar los arrays
         res.status(200).render('home', { data: data });
     }),
