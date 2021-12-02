@@ -15,8 +15,11 @@ app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 app.get('/', adsWeb.getHome);
 app.post('/', adsWeb.getAllAdsSearch);
 
+// ***** PDTE REFACTOR *****
 app.get('/register', adsWeb.getRegister);
 app.get('/login', adsWeb.getLogin);
+app.post('/register', adsWeb.getRegister);
+app.post('/login', adsWeb.getLogin);
 app.get('/favorites', adsWeb.getFavorites);
 app.get('/profiles', adsWeb.getProfiles);
 app.get('/dashboard', adsWeb.getDashboard);

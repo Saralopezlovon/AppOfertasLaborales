@@ -3,7 +3,7 @@ const dotenv = require('dotenv'); //Aqui llamamos al módulo dotenv para usar va
 dotenv.config({ path: '.env' });
 
 const app = require('./app');
-const port = 3000;
+const port = 3000; 
 
 //MONGOOSE DB CONECTION
 
