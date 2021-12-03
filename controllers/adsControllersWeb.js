@@ -11,9 +11,12 @@ const adsWeb = {
     }),
 
     getAllAdsSearch: catchAsync(async (req, res) => {
-        const allAds = await Ad.find({title : req.body.titleSearched});
+        const allAds = await Ad.find({title:req.body.titleSearched});
+        // usar metodo de JS tolowercase en variable 
+        console.log(allAds)
         const scrapingTeAds = await scrapingTe(req.body.titleSearched);
         const data = [...scrapingTeAds, ...allAds]; // Usamos Spread Operator para combinar los arrays
+        console.log(data)
         res.status(200).render('home', { data: data });
     }),
 

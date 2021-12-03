@@ -7,7 +7,7 @@ const scrapingTe = async (tag) => {
 
         // Abre el navegador (chromium)
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
         });
 
         // Abre nueva página en el navegador con TecnoEmpleo
