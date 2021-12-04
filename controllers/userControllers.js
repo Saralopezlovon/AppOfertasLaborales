@@ -8,11 +8,16 @@ const userControllers = {
     // Registrarse como nuevo usuario
     signUp: catchAsync(async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.userPassword, 10);
+        if (req.body.userPassword != req.body.userPassword2)
+            return res.status(401).json({
+                status: 'fail',
+                message: 'Las contraseñas no coinciden',
+            });
         const newUser = await pool.query(
             'INSERT INTO users(userName,userEmail,userPassword) VALUES($1, $2, $3) RETURNING *',
             [req.body.userName, req.body.userEmail, hashedPassword]
         );
-        res.status(204).redirect('/login');
+        res.status(204).redirect('/user/login');
     }),
 
     // Login de usuario registrado

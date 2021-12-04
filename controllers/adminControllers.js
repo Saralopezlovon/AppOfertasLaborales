@@ -8,7 +8,7 @@ const ads = {
     // Renderiza la pag "dashboard"
     getDashboard: catchAsync(async (req, res) => {
         const allAds = await Ad.find();
-        res.status(200).render('dashboard', { allAds });
+        res.status(200).render('dashboard', { adminName: 'Ricky', allAds });
     }),
 
     // Muestra todos los anuncios de la BBDD de MongoDB

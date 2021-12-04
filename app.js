@@ -12,16 +12,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 app.use(express.static('public')); // Middleware para servir archivos estáticos de la carpeta "public"
 
+// PUG
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+//ROUTES
 // Routes Web
 app.use('/', webRouter);
 // Routes API
 app.use('/', adminRouter);
 // Routes usuarios
 app.use('/', usersRouter);
-
-// PUG
-app.set('view engine', 'pug');
-app.set('views', './views');
 
 // MANEJO DE ERRORES
 // Si no encuentra la ruta buscada aparece este error
