@@ -14,8 +14,6 @@ app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 // ROUTES
 // Routes Web
 app.use('/', webRoutes);
-app.use('/register', webRoutes);
-app.use('/login', webRoutes);
 // Routes API
 app.use('/', apiRouter);
 // Routes usuarios

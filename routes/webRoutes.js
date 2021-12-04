@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.route('/').get(adsWeb.getHome).post(adsWeb.getAllAdsSearch);
 
-router.route('/').get(adsWeb.getRegister); //.post(adsWeb.newRegister);
+router.route('/signup').get(adsWeb.getSignup); //.post(adsWeb.newRegister);
 
-router.route('/').get(adsWeb.getLogin); //.post(adsWeb.doLogin);
+router.route('/login').get(adsWeb.getLogin); //.post(adsWeb.doLogin);
 
 router.get('/admin/dashboard', adsWeb.getDashboard);
 // Ruta como usuario logeado
