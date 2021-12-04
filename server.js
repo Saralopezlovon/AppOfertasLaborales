@@ -1,14 +1,23 @@
+// MÓDULOS
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); //Aqui llamamos al módulo dotenv para usar variables de entorno.
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const app = require('./app');
+
+const PORT = 3000;
+
 dotenv.config({ path: '.env' });
 
-const app = require('./app');
-const port = 3000; 
+// OPCIONES CORS
+const corsOptions = { credentials: true, origin: process.env.URL || '*' };
 
-//MONGOOSE DB CONECTION
+// MIDDLEWARES
+app.use(cors(corsOptions));
+app.use(cookieParser());
 
-const DB = process.env.DATABASE;
-
+// CONECCIÓN CON MONGODB
+const DB = process.env.DATABASE_MONGODB_URL;
 mongoose
     .connect(DB, {
         useNewUrlParser: true,
@@ -17,8 +26,7 @@ mongoose
 
     .then(() => console.log('¡Conexión establecida con MongoDB!'));
 
-//NODE SERVER CONECTION
-
-app.listen(port, () => {
+//CONECCIÓN CON EL SERVIDOR
+app.listen(PORT, () => {
     console.log('¡¡Conexión exitosa con el servidor!!');
 });
