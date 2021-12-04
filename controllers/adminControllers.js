@@ -65,10 +65,8 @@ const ads = {
     // Muestra todos los usuarios registrados en la BBDD de PostgreSQL
     getUsers: catchAsync(async (req, res) => {
         const users = await pool.query('SELECT * FROM users');
-        res.status(200).json({
-            status: 'succes',
-            data: { users: users.rows },
-        });
+        res.status(200).render('users',{users: users.rows})
+        console.log(users)
     }),
 };
 

@@ -6,8 +6,16 @@ html
 
       title="Favoritos"
    body
-    fieldset
-        h1 #{name}
-        form(action='/favorites', method='POST')
-            input(type='text', name='title', placeholder='Buscar por titulo') 
-            input(type='submit', value='Buscar')
+      section.card
+         each fav in allFavorites
+            div.container            
+               img.image(src=allFavorites.image, alt=allFavorites.company, style='width:100%')              
+               h2 #{allFavorites.title} 
+               h3 ID anuncio: #{allFavorites.adID}               
+               p Empresa: #{allFavorites.company} 
+               p Ubicación: #{allFavorites.location}
+               p Salario: #{allFavorites.salary}
+               p Descripción: #{allFavorites.description}
+               br
+               br
+               hr

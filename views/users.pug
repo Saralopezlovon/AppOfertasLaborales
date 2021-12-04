@@ -1,11 +1,38 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="./styles/styles.css")
-      link(rel="stylesheet", href="./styles/normalize.css")
-
-      title="Mi perfil"
+      link(rel="stylesheet", href="../styles/styles.css")
+      link(rel="stylesheet",href="../styles/normalize.css")
+      title="Ofertas"
    body
-    fieldset
-        h1 #{name}
-        h2 Mi perfil
+      include ./header.pug
+      div 
+         hr
+         a(href='users') Ver usuarios
+         hr
+      div 
+         h1 Editar usuario por id
+            form(action='/admin/profiles/update', method='POST')
+               input(type='text', name='idUpdate', placeholder='ID del usuario a editar')
+               input(type='text', name='name', placeholder='Nombre')
+               input(type='text', name='email', placeholder='Email')
+               input(type='text', name='password', placeholder='Contraseña')
+               input(type='text', name='avatar', placeholder='Imagen')
+               input(type='submit', value='Editar usuario')
+         h1 Borrar usuario por id
+            form(action='/admin/profiles/delete', method='POST')
+               input(type='text', name='idDelete', placeholder='ID del usuario')
+               input(type='submit', value='Borrar usuario')
+      div             
+         h2 Listado de usuarios registrados en TSR:
+         section.card
+         each user in users
+            div.container            
+               h2 Nombre: #{users.username}        
+               h3 Email: #{users.useremail}               
+               p Rol: #{users.isadmin} 
+               p ID: #{users.userid}
+               br
+               hr
+               script
+      include ./footer.pug

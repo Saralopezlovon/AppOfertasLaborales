@@ -6,11 +6,23 @@ const adminRouter = require('./routes/adminRoutes');
 const webRouter = require('./routes/webRoutes');
 const AppError = require('./utils/appError');
 const errMiddleware = require('./middlewares/errorMiddleware');
+const session = require('express-session');
+const flash = require('express-flash');
+
+// instalamos express-session y express-flash para guardar los detalles del usuario y de la sesión y asi mostrar mensajes cuando hacemos redirecciones  
 
 // MIDDLEWARES
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 app.use(express.static('public')); // Middleware para servir archivos estáticos de la carpeta "public"
+app.use(flash()); //para mostrar mensajes "flash" 
+app.use(
+    session({
+    secret:"secret", // para una key que encripta toda la info de la sesion 
+    resave:false, //esto guarda las variables de la sesion si nada cambia 
+    saveUninitialized:false, // guarda los detalles si no hay sesion 
+    })
+);
 
 // PUG
 app.set('view engine', 'pug');
