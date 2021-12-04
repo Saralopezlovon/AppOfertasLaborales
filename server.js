@@ -1,12 +1,14 @@
+// MÓDULOS
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); //Aqui llamamos al módulo dotenv para usar variables de entorno.
-dotenv.config({ path: '.env' });
 
 const app = require('./app');
-const port = 3000; 
 
-//MONGOOSE DB CONECTION
+const PORT = 3000;
 
+dotenv.config({ path: '.env' });
+
+// CONECCIÓN CON MONGODB
 const DB = process.env.DATABASE;
 
 mongoose
@@ -17,8 +19,7 @@ mongoose
 
     .then(() => console.log('¡Conexión establecida con MongoDB!'));
 
-//NODE SERVER CONECTION
-
-app.listen(port, () => {
+//CONECCIÓN CON EL SERVIDOR
+app.listen(PORT, () => {
     console.log('¡¡Conexión exitosa con el servidor!!');
 });

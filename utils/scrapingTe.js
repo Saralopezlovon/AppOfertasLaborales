@@ -1,7 +1,7 @@
 // MÓDULO PARA LLAMAR PUPPETEER
 const puppeteer = require('puppeteer');
 
-const scrapingTe = async (tag) => {
+const scrapingTe = async tag => {
     try {
         //·················NAVEGADOR··················//
 

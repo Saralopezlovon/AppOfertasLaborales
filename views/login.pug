@@ -1,15 +1,15 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="./styles/login.css")
-      link(rel="stylesheet", href="./styles/normalize.css")
+      link(rel="stylesheet", href="../styles/login.css")
+      link(rel="stylesheet", href="../styles/normalize.css")
       title="Login"
 body
    section.loginEmail
       h1.titleSectionEmail Login por Email   
-      form.formLogin(action='/login', method='POST')
-         input.email(type="email", name='emailUser' pattern=".+@globex\.com", size="30", required, placeholder='Email')
-         input.password(type="password", pattern=".{6,}", placeholder="Contraseña")
+      form.formLogin(action='/user/login', method='POST')
+         input.email(type="email", name='userEmail' /*pattern=".+@globex\.com"*/, size="30", required, placeholder='Email')
+         input.password(type="password", name = 'userPassword' /*pattern=".{6,}"*/, placeholder="Contraseña", required)
          input.btnRegister(type='submit', value='Login')
 
    section.loginOthers

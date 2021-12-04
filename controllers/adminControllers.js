@@ -1,9 +1,16 @@
 // MÓDULOS
+const pool = require('../pgdb');
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync');
 
 //HANDLER FUNCTIONS
 const ads = {
+    // Renderiza la pag "dashboard"
+    getDashboard: catchAsync(async (req, res) => {
+        const allAds = await Ad.find();
+        res.status(200).render('dashboard', { adminName: 'Ricky', allAds });
+    }),
+
     // Muestra todos los anuncios de la BBDD de MongoDB
     getAllAds: catchAsync(async (req, res) => {
         const allAds = await Ad.find();
@@ -21,7 +28,6 @@ const ads = {
             image: req.body.logo,
             link: req.body.link,
         });
-
         res.status(200).redirect('/admin/dashboard');
     }),
 
@@ -55,6 +61,17 @@ const ads = {
         await Ad.deleteOne({ adID: parseInt(req.body.idDelete, 10) });
         res.status(204).redirect('/admin/dashboard');
     }),
+
+    // Muestra todos los usuarios registrados en la BBDD de PostgreSQL
+    getUsers: catchAsync(async (req, res) => {
+        const users = await pool.query('SELECT * FROM users');
+        res.status(200).json({
+            status: 'succes',
+            data: { users: users.rows },
+        });
+    }),
 };
+
+// Aquí faltan los controladores para editar o borrar usuarios de la BBDD de PostgreSQL
 
 module.exports = ads;

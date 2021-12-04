@@ -1,20 +1,20 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="./styles/register.css")
-      link(rel="stylesheet", href="./styles/normalize.css")
+      link(rel="stylesheet", href="../styles/signup.css")
+      link(rel="stylesheet", href="../styles/normalize.css")
       title="Register"
 body
    section.registerEmail
       h1.titleSectionEmail Registro por Email
       p.otherRoute ¿Ya tienes una cuenta en TSR? 
          a.otherRouteLink(href="./login") Iniciar Sesión    
-      form.formRegister(action='/register', method='POST')
-         input.name(type='text', name='nameNewUser', placeholder='Nombre')
-         input.email(type="email", pattern=".+@globex\.com", size="30", required, placeholder='Email')
-         input.password(type="password", pattern=".{6,}", placeholder="Contraseña")
+      form.formRegister(action='/user/signup', method='POST')
+         input.name(type='text', name='userName', placeholder='Nombre', required)
+         input.email(type="email", name = 'userEmail', size="30", required, placeholder='Email')
+         input.password(type="password", name = 'userPassword', placeholder="Contraseña", required)
+         input.password(type="password", name = 'userPassword2', placeholder="Confirmar contraseña", required)
          input.btnRegister(type='submit', value='Regístrate')
-
    section.registerOthers
       a.rsLink(href="www.facebook.com")
          div.fbContainer
