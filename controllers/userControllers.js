@@ -3,19 +3,16 @@ const pool = require('../pgdb');
 const bcrypt = require('bcrypt');
 const catchAsync = require('../utils/catchAsync');
 
+// HANDLER FUNCTIONS
 const userControllers = {
-    createUser: catchAsync(async (req, res) => {
+    // Registrarse como nuevo usuario
+    signUp: catchAsync(async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.userPassword, 10);
         const newUser = await pool.query(
             'INSERT INTO users(userName,userEmail,userPassword) VALUES($1, $2, $3) RETURNING *',
             [req.body.userName, req.body.userEmail, hashedPassword]
         );
         res.status(204).redirect('/login');
-    }),
-
-    // Renderiza la pag "profile"
-    getProfile: catchAsync(async (req, res) => {
-        res.status(200).render('profile');
     }),
 
     // Login de usuario registrado
@@ -44,10 +41,18 @@ const userControllers = {
 
         res.status(200).redirect('/user/profile');
     }),
+
+    // Renderiza la pag "profile" del usuario
+    getProfile: catchAsync(async (req, res) => {
+        res.status(200).render('profile');
+    }),
+
     // Renderiza la pag "favorites"
     getFavorites: catchAsync(async (req, res) => {
         res.status(200).render('favorites');
     }),
 };
+
+// Aquí faltan los controladores para que el usuario pueda editar o borrar su perfil
 
 module.exports = userControllers;

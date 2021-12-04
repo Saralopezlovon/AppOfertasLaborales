@@ -72,4 +72,6 @@ const ads = {
     }),
 };
 
+// Aquí faltan los controladores para editar o borrar usuarios de la BBDD de PostgreSQL
+
 module.exports = ads;

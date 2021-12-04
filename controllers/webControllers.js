@@ -5,7 +5,7 @@ const scrapingTe = require('../utils/scrapingTe');
 
 // HANDLER FUNCTIONS
 const adsWeb = {
-    // Renderiza la pag "Home" y muestra los anuncios de scraping y de MongoDB
+    // Renderiza la pag "Home"
     getHome: catchAsync(async (req, res) => {
         res.status(200).render('home');
     }),
