@@ -10,9 +10,9 @@ body
       p.otherRoute ¿Ya tienes una cuenta en TSR? 
          a.otherRouteLink(href="./login") Iniciar Sesión    
       form.formRegister(action='/signup', method='POST')
-         input.name(type='text', name='nameNewUser', placeholder='Nombre')
-         input.email(type="email", pattern=".+@globex\.com", size="30", required, placeholder='Email')
-         input.password(type="password", pattern=".{6,}", placeholder="Contraseña")
+         input.name(type='text', name='userName', placeholder='Nombre')
+         input.email(type="email", name = 'userEmail', size="30", required, placeholder='Email')
+         input.password(type="password", name = 'userPassword', placeholder="Contraseña")
          input.btnRegister(type='submit', value='Regístrate')
 
    section.registerOthers

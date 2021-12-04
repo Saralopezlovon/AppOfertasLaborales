@@ -3,6 +3,9 @@ const userControllers = require('../controllers/userControllers');
 
 const router = express.Router();
 
-router.get('/', userControllers.getUsers);
+router.post('/login', userControllers.doLogin);
+router.post('/signup', userControllers.createUser);
+router.get('/user/profile', userControllers.getProfile);
 
+// Falta ruta para favoritos /user/favorites
 module.exports = router;
