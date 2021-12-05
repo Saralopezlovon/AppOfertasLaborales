@@ -1,13 +1,5 @@
-doctype html
-html
-   head
-      link(rel="stylesheet", href="./styles/styles.css")
-      link(rel="stylesheet", href="./styles/normalize.css")
+extends layout
 
-      title="Favoritos"
-   body
-    fieldset
-        h1 #{name}
-        form(action='/favorites', method='POST')
-            input(type='text', name='title', placeholder='Buscar por titulo') 
-            input(type='submit', value='Buscar')
+block content
+  .w3-card-4
+    h2 Aquí se muestran los anuncios guardados como favoritos

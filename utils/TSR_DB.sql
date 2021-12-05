@@ -1,20 +1,20 @@
-CREATE DATABASE jobsapp;
+CREATE DATABASE tsrjobsapp;
 
 -- Poner todos los campos en minusculas para evitar problemas
 
 CREATE TABLE users (
-  userid SERIAL  PRIMARY KEY,
-  username VARCHAR(200)  NOT NULL,
-  useremail VARCHAR (100) NOT NULL UNIQUE, 
-  userpassword VARCHAR (255) NOT NULL,
-  useravatar VARCHAR (2550),
+  id SERIAL  PRIMARY KEY,
+  nickname VARCHAR(200)  NOT NULL,
+  email VARCHAR (100) NOT NULL UNIQUE, 
+  password VARCHAR (255) NOT NULL,
+  avatar VARCHAR (2550),
 	isadmin BOOLEAN DEFAULT False, 
   created timestamp NOT NULL DEFAULT now() 
 );
   
 -- DROP TABLE users 
 
-INSERT INTO users(userName,userEmail,userPassword)
+INSERT INTO users(nickname,email,password)
 VALUES 
 ('Ricky', 'ricky@postgres.com', '1234'),
 ('Bob', 'bob@postgres.com', '1234'),

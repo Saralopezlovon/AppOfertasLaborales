@@ -5,6 +5,38 @@ const catchAsync = require('../utils/catchAsync');
 
 //HANDLER FUNCTIONS
 const ads = {
+    // Renderiza la pag "login" del admin
+    getAdminLogin: catchAsync(async (req, res) => {
+        res.status(200).render('adminlogin');
+    }),
+
+    // Renderiza la pag "login" del admin
+    doAdminLogin: catchAsync(async (req, res) => {
+        const { userEmail, userPassword } = req.body;
+        const users = await pool.query(
+            'SELECT * FROM users WHERE userEmail = $1',
+            [userEmail]
+        );
+        // Comprueba el email
+        if (users.rows.length === 0)
+            return res.status(401).json({
+                status: 'fail',
+                message: 'El email introducido es incorrecto',
+            });
+        // Comprueba el password
+        const validPassword = await bcrypt.compare(
+            userPassword,
+            users.rows[0].userpassword
+        );
+        if (!validPassword)
+            return res.status(401).json({
+                status: 'fail',
+                message: 'Contraseña incorrecta',
+            });
+
+        res.status(200).redirect('/admin/dashboard');
+    }),
+
     // Renderiza la pag "dashboard"
     getDashboard: catchAsync(async (req, res) => {
         const allAds = await Ad.find();

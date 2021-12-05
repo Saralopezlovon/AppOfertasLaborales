@@ -5,10 +5,6 @@ const scrapingTe = require('../utils/scrapingTe');
 
 // HANDLER FUNCTIONS
 const adsWeb = {
-    // Renderiza la pag "Home"
-    getHome: catchAsync(async (req, res) => {
-        res.status(200).render('home');
-    }),
     // LLama al scraping y muestra los anuncios junto con los de la BBDD de MongoDB
     getAllAdsSearch: catchAsync(async (req, res) => {
         const allAds = await Ad.find({ title: req.body.titleSearched });
@@ -17,17 +13,7 @@ const adsWeb = {
         const scrapingTeAds = await scrapingTe(req.body.titleSearched);
         const data = [...scrapingTeAds, ...allAds]; // Usamos Spread Operator para combinar los arrays
         console.log(data);
-        res.status(200).render('home', { data: data });
-    }),
-
-    // Renderiza la pag "register"
-    getSignup: catchAsync(async (req, res) => {
-        res.status(200).render('signup');
-    }),
-
-    // Renderiza la pag "login"
-    getLogin: catchAsync(async (req, res) => {
-        res.status(200).render('login');
+        res.status(200).render('index', { data: data });
     }),
 };
 

@@ -3,12 +3,11 @@ const webControllers = require('../controllers/webControllers');
 
 const router = express.Router();
 
-router
-    .route('/')
-    .get(webControllers.getHome)
-    .post(webControllers.getAllAdsSearch);
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    res.render('index', { title: 'Auth0 Webapp sample Nodejs' });
+});
 
-router.route('/user/login').get(webControllers.getLogin);
-router.route('/user/signup').get(webControllers.getSignup);
+router.post('/', webControllers.getAllAdsSearch);
 
 module.exports = router;
