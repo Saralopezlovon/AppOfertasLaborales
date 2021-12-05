@@ -1,5 +1,6 @@
 // MODULES
 const express = require('express');
+const helmet = require('helmet');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -18,7 +19,7 @@ const errMiddleware = require('./middlewares/errorMiddleware');
 
 dotenv.config();
 
-// Configure Passport to use Auth0
+// Configurar Passport para usar Auth0
 const strategy = new Auth0Strategy(
     {
         domain: process.env.AUTH0_DOMAIN,
@@ -58,6 +59,7 @@ app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 
 app.use(logger('dev'));
 app.use(cookieParser());
+app.use(helmet());
 
 // config express-session
 var sess = {
