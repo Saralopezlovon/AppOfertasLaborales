@@ -15,5 +15,9 @@ router.post('/admin/ads/delete', adminControllers.deleteAd);
 router.post('/admin/ads/update', adminControllers.updateAd);
 // Routes de los usuarios de la BBDD de PostgreSQL
 router.get('/admin/users', adminControllers.getUsers);
+router
+    .route('/admin/login')
+    .get(adminControllers.getAdminLogin)
+    .post(adminControllers.doAdminLogin);
 
 module.exports = router;
