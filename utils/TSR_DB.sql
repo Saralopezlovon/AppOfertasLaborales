@@ -26,3 +26,20 @@ SELECT * FROM users;
 -- \c jobsapp (PARA CONECTARNOS A LA BASE DE DATOS)
 -- \dt (PARA LISTAR NUESTRAS TABLAS)
 -- heroku pg:psql (PARA CONECTARNOS A HEROKU)
+
+
+--Añadir tabla favoritos
+
+CREATE TABLE favorites
+(
+   favorite_id SERIAL  PRIMARY KEY,
+   fk_id_user SERIAL,
+   title VARCHAR(500)  NOT NULL,
+   company VARCHAR (500) NOT NULL UNIQUE, 
+   location VARCHAR (500) NOT NULL,
+   salary VARCHAR (500),
+   description VARCHAR (9000000),
+   image VARCHAR (500),
+   link VARCHAR (500),	 
+   FOREIGN KEY (fk_id_user) REFERENCES users(id)       
+ );

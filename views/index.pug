@@ -23,6 +23,7 @@ block content
           li.description #{ad.description}
           li.date Fecha anuncio: #{ad.date}
           li
-            a(href=ad.link) Más información
-          input.btnFavorite(type='submit', value='GuardarFav')
+            a(href=ad.link, target='_blank') Más información
+          if locals.user
+            input.btnFavorite(type='button', value='GuardarFav')
     include ./footer.pug

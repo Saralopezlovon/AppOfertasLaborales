@@ -15,6 +15,8 @@ const userControllers = {
 
         // res.status(200).render('favorites');
     }),
+
+    
 //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     updateUser: catchAsync(async (req, res) => {
         let client, result;        
