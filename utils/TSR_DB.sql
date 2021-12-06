@@ -4,10 +4,10 @@ CREATE DATABASE tsrjobsapp;
 
 CREATE TABLE users (
   id SERIAL  PRIMARY KEY,
-  nickname VARCHAR(200)  NOT NULL,
+  nickname VARCHAR(200),
   email VARCHAR (100) NOT NULL UNIQUE, 
   password VARCHAR (255) NOT NULL,
-  avatar VARCHAR (2550),
+  picture VARCHAR (2550),
 	isadmin BOOLEAN DEFAULT False, 
   created timestamp NOT NULL DEFAULT now() 
 );

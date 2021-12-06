@@ -40,7 +40,7 @@ const ads = {
     // Renderiza la pag "dashboard"
     getDashboard: catchAsync(async (req, res) => {
         const allAds = await Ad.find();
-        res.status(200).render('dashboard', { adminName: 'Ricky', allAds });
+        res.status(200).render('dashboard', { adminName: 'TSR Admin', allAds });
     }),
 
     // Muestra todos los anuncios de la BBDD de MongoDB
@@ -97,13 +97,30 @@ const ads = {
     // Muestra todos los usuarios registrados en la BBDD de PostgreSQL
     getUsers: catchAsync(async (req, res) => {
         const users = await pool.query('SELECT * FROM users');
-        res.status(200).json({
-            status: 'succes',
-            data: { users: users.rows },
-        });
+        const {id, nickname, email, isadmin, created} =  users
+        res.status(200).render('users', {users});
+        console.log(users)
     }),
+    // deleteUser: catchAsync(async (req, res) => {
+    //     const users = await pool.query('SELECT * FROM users');
+    //     res.status(200).render('users', {users});
+    // }),
+
+    // //EDITAR LOS DATOS DE UN USUARIO COMO ADMIN-> segun el id
+    // updateUser: catchAsync(async (req, res) => {
+    //         let client, result;        
+
+    //         client = await pool.connect(); // Espera a abrir conexion
+    //         const {idUpdate, nicknameUpdate, emailUpdate, passwordUpdate} = req.body
+    //         const data = await client.query(`UPDATE users SET nickname=$1 , email=$2, password=$3, picture=$4 WHERE id=$5`, [nicknameUpdate, emailUpdate, passwordUpdate, idUpdate])
+    //         result = data.rowCount
+    //         client.release();    
+    //         res.status(200).render('user', {result});
+    // }),
 };
 
-// Aquí faltan los controladores para editar o borrar usuarios de la BBDD de PostgreSQL
+// UPDATE public.users SET nickname='Bobby', email='bob@changed.es', password='1111', avatar='?' WHERE id=2;
+
+
 
 module.exports = ads;
