@@ -15,8 +15,23 @@ const userControllers = {
 
         // res.status(200).render('favorites');
     }),
+
+    
+//EDITAR LOS DATOS DE UN USUARIO -> segun el id
+    updateUser: catchAsync(async (req, res) => {
+        let client, result;        
+
+        client = await pool.connect(); // Espera a abrir conexion
+        const {idUpdate, nicknameUpdate, emailUpdate, passwordUpdate} = req.body
+        const data = await client.query(`UPDATE users SET nickname=$1 , password=$2 WHERE id=$3`, [nicknameUpdate, passwordUpdate, idUpdate])
+        result = data.rowCount
+        client.release();    
+        res.status(200).render('user', {result});
+    }),
 };
 
-// Aquí faltan los controladores para que el usuario pueda editar o borrar su perfil
+
+
+// Aquí faltan los controladores para que el usuario pueda borrar su perfil
 
 module.exports = userControllers;

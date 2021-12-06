@@ -3,9 +3,11 @@ extends layout
 block content
   .w3-card-4
     h1 Welcome #{user.nickname}
-    img(src=user.picture)
-    h2 User profile
-    p This is the content of <code>req.user</code>.
-    p Note: <code>_raw</code> and <code>_json</code> properties have been ommited.
-    pre
-      code #{userProfile}
+    img(src=user.picture, alt=user.nickname)
+    p #{user.displayName} 
+    //- h2 Editar perfil 
+    //-   form(action='/user', method='POST')
+    //-       input(type='text', name='idUpdate') 
+    //-       input(type='text', name='nicknameUpdate', placeholder='Nuevo nickname')
+    //-       input(type='text', name='passwordUpdate', placeholder='Editar contraseña')
+    //-       input(type='submit', value='Editar perfil')

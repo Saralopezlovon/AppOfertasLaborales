@@ -4,10 +4,10 @@ CREATE DATABASE tsrjobsapp;
 
 CREATE TABLE users (
   id SERIAL  PRIMARY KEY,
-  nickname VARCHAR(200)  NOT NULL,
+  nickname VARCHAR(200),
   email VARCHAR (100) NOT NULL UNIQUE, 
   password VARCHAR (255) NOT NULL,
-  avatar VARCHAR (2550),
+  picture VARCHAR (2550),
 	isadmin BOOLEAN DEFAULT False, 
   created timestamp NOT NULL DEFAULT now() 
 );
@@ -26,3 +26,20 @@ SELECT * FROM users;
 -- \c jobsapp (PARA CONECTARNOS A LA BASE DE DATOS)
 -- \dt (PARA LISTAR NUESTRAS TABLAS)
 -- heroku pg:psql (PARA CONECTARNOS A HEROKU)
+
+
+--Añadir tabla favoritos
+
+CREATE TABLE favorites
+(
+   favorite_id SERIAL  PRIMARY KEY,
+   fk_id_user SERIAL,
+   title VARCHAR(500)  NOT NULL,
+   company VARCHAR (500) NOT NULL UNIQUE, 
+   location VARCHAR (500) NOT NULL,
+   salary VARCHAR (500),
+   description VARCHAR (9000000),
+   image VARCHAR (500),
+   link VARCHAR (500),	 
+   FOREIGN KEY (fk_id_user) REFERENCES users(id)       
+ );
