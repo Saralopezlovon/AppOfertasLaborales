@@ -14,7 +14,7 @@ html
       a(href="/").w3-bar-item.w3-button Inicio
       if locals.user
         a(href="/user" id="profileDropDown").w3-bar-item.w3-button Perfil
-        a(href="/admin/login" id="favoritesDropDown").w3-bar-item.w3-button Favoritos
+        a(href="/user/favorites" id="favoritesDropDown").w3-bar-item.w3-button Favoritos
         a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Desconectar
       else
         a(id="qsLoginBtn" href="/login").w3-bar-item.w3-button Iniciar sesión
