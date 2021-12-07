@@ -1,18 +1,30 @@
 // MODULES
 const pool = require('../pgdb');
 const bcrypt = require('bcrypt');
-const scriptFavorites = require ('../public/scripts/scriptFavorites');
+const scriptFavorites = require('../public/scripts/scriptFavorites');
 const catchAsync = require('../utils/catchAsync');
 
 // HANDLER FUNCTIONS
 const userControllers = {
     // Añade un favorito a la BBDD
     addFavorite: catchAsync(async (req, res) => {
-        console.log(req.body)
-        const {title,company, location, salary, description,image,link} = req.body
+        const { ...userProfile } = req.user;
+        const fkIdUser = parseInt(userProfile.id.slice(6), 10);
+        const { title, company, location, salary, description, image, link } =
+            req.body;
         const newFavorite = await pool.query(
             `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
-            VALUES (2, $1, $2, $3, $4, $5, $6, $7)`, [title,company, location, salary, description,image,link] 
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+            [
+                fkIdUser,
+                title,
+                company,
+                location,
+                salary,
+                description,
+                image,
+                link,
+            ]
         );
         res.status(200).json({ newFavorite: newFavorite.rows });
         // res.status(200).render('favorites');
@@ -21,9 +33,6 @@ const userControllers = {
     getFavorites: catchAsync(async (req, res) => {
         res.status(200).render('favorites');
     }),
-
-
-
 
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     // updateUser: catchAsync(async (req, res) => {
