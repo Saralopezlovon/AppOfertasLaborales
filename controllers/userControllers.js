@@ -9,9 +9,10 @@ const userControllers = {
     // Añade un favorito a la BBDD
     addFavorite: catchAsync(async (req, res) => {
         console.log(req.body)
+        const {title,company, location, salary, description,image,link} = req.body
         const newFavorite = await pool.query(
             `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
-            VALUES (1,'aaaaPPPPP','PPP','AAA','s','f','z','l')`
+            VALUES (2, $1, $2, $3, $4, $5, $6, $7)`, [title,company, location, salary, description,image,link] 
         );
         res.status(200).json({ newFavorite: newFavorite.rows });
         // res.status(200).render('favorites');
