@@ -1,20 +1,22 @@
 // MODULES
 const pool = require('../pgdb');
 const bcrypt = require('bcrypt');
+const scriptFavorites = require ('../public/scripts/scriptFavorites');
 const catchAsync = require('../utils/catchAsync');
 
 // HANDLER FUNCTIONS
 const userControllers = {
-    //Añade un favorito a la BBDD
-    addFavorite: catchAsync(async (req, res) => {
-        const newFavorite = await pool.query(
-            `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link) 
-            VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`
-        );
-        res.status(200).json({ newFavorite: newFavorite.rows });
+    //Añade un favorito a la BBDD:
+    
+    // addFavorite: catchAsync(async (req, res) => {
+    //     console.log(scriptFavorites())
+        // const newFavorite = await pool.query(
+        //     `INSERT INTO favorites(title) VALUES ($1)`,[scriptFavorites()]
+        // );
+        // res.status(200).json({ newFavorite: newFavorite.rows });
 
         // res.status(200).render('favorites');
-    }),
+    // }),
 
     
 //EDITAR LOS DATOS DE UN USUARIO -> segun el id
@@ -28,6 +30,7 @@ const userControllers = {
         client.release();    
         res.status(200).render('user', {result});
     }),
+
 };
 
 

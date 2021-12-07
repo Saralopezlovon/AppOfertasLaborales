@@ -1,14 +1,20 @@
-
-
+const adTitle = () =>{
 document.querySelectorAll('.ad').forEach(item => {
-    item.addEventListener('click', event => {   
-        
-        const titles = document.querySelectorAll('li[class="title"]')
-        titles.forEach((title, i) =>{            
-            return title[i].innerText
-        })
+    item.addEventListener('click', e => {
+        // console.log(e.currentTarget)
+        let data = e.currentTarget;
+        document.querySelector(`${data} li[class=title]`).innerText;
+    })})
+}
 
-        console.log(titles)
+// const adTitle = () =>{
 
-    })
-  })
+//     const adsElements = document.querySelectorAll('.ad .title');
+    
+//     const adtitleDef = adsElements.forEach((adCard, i) => {
+//         adCard.addEventListener('click', () => adCard.innerText);
+//     });
+
+//     return adtitleDef 
+// }
+
