@@ -6,16 +6,24 @@ const catchAsync = require('../utils/catchAsync');
 
 // HANDLER FUNCTIONS
 const userControllers = {
-    //Añade un favorito a la BBDD
-    // addFavorite: catchAsync(async (req, res) => {
-    //     // req.body
-    //     const newFavorite = await pool.query(
-    //         `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
-    //         VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`
-    //     );
-    //     res.status(200).json({ newFavorite: newFavorite.rows });
-    //     res.status(200).render('favorites');
-    // }),
+    // Añade un favorito a la BBDD
+    addFavorite: catchAsync(async (req, res) => {
+        console.log(req.body)
+        const newFavorite = await pool.query(
+            `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
+            VALUES (1,'aaaaPPPPP','PPP','AAA','s','f','z','l')`
+        );
+        res.status(200).json({ newFavorite: newFavorite.rows });
+        // res.status(200).render('favorites');
+    }),
+
+    getFavorites: catchAsync(async (req, res) => {
+        res.status(200).render('favorites');
+    }),
+
+
+
+
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     // updateUser: catchAsync(async (req, res) => {
     //     let client, result;
