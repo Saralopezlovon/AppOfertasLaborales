@@ -1,6 +1,6 @@
 // MODULES
 const express = require('express');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -59,7 +59,7 @@ app.use(express.urlencoded({ extended: false })); //IMPORTANTE
 
 app.use(logger('dev'));
 app.use(cookieParser());
-app.use(helmet());
+// app.use(helmet());
 
 // config express-session
 var sess = {
