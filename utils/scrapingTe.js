@@ -7,7 +7,7 @@ const scrapingTe = async tag => {
 
         // Abre el navegador (chromium)
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
         });
 
         // Abre nueva página en el navegador con TecnoEmpleo
@@ -43,7 +43,7 @@ const scrapingTe = async tag => {
             }
         );
         // Espera 4 seg para poder hacer click
-        await page.waitForTimeout(4000);
+        await page.waitForTimeout(2000);
 
         //Hacemos click en la opción "sin experiencia"
         await page.click(
@@ -59,7 +59,7 @@ const scrapingTe = async tag => {
                 visible: true,
             }
         );
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(900);
 
         // Extraemos en un array los links de las ofertas de trabajo
 
@@ -89,7 +89,7 @@ const scrapingTe = async tag => {
 
             // TITULO-Cuando esta visible, todos estan visibles
             await page.waitForSelector('h1[itemprop="title"]');
-            await page.waitForTimeout(1000);
+            await page.waitForTimeout(400);
 
             //ENLACE
 
