@@ -8,6 +8,7 @@ const catchAsync = require('../utils/catchAsync');
 const userControllers = {
     //Añade un favorito a la BBDD
     // addFavorite: catchAsync(async (req, res) => {
+    //     // req.body
     //     const newFavorite = await pool.query(
     //         `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
     //         VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`
