@@ -1,5 +1,6 @@
 // MÓDULOS
 const pool = require('../pgdb');
+const bcrypt = require('bcrypt');
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync');
 
@@ -10,15 +11,15 @@ const ads = {
         res.status(200).render('adminlogin');
     }),
 
-    // Renderiza la pag "login" del admin
+    // Comprobar si el usuario introducido es admin para poder entrar
     doAdminLogin: catchAsync(async (req, res) => {
         const { userEmail, userPassword } = req.body;
-        const users = await pool.query(
-            'SELECT * FROM users WHERE userEmail = $1',
+        const userInfo = await pool.query(
+            'SELECT * FROM users WHERE email = $1',
             [userEmail]
         );
-        // Comprueba el email
-        if (users.rows.length === 0)
+        // Comprueba el emails
+        if (userInfo.rows.length === 0)
             return res.status(401).json({
                 status: 'fail',
                 message: 'El email introducido es incorrecto',
@@ -26,15 +27,21 @@ const ads = {
         // Comprueba el password
         const validPassword = await bcrypt.compare(
             userPassword,
-            users.rows[0].userpassword
+            userInfo.rows[0].password
         );
         if (!validPassword)
             return res.status(401).json({
                 status: 'fail',
                 message: 'Contraseña incorrecta',
             });
-
-        res.status(200).redirect('/admin/dashboard');
+        if (userInfo.rows[0].isadmin) {
+            res.status(200).redirect('/admin/dashboard');
+        } else {
+            return res.status(401).json({
+                status: 'fail',
+                message: 'No eres un administrador',
+            });
+        }
     }),
 
     // Renderiza la pag "dashboard"
@@ -97,9 +104,9 @@ const ads = {
     // Muestra todos los usuarios registrados en la BBDD de PostgreSQL
     getUsers: catchAsync(async (req, res) => {
         const users = await pool.query('SELECT * FROM users');
-        const {id, nickname, email, isadmin, created} =  users
-        res.status(200).render('users', {users});
-        console.log(users)
+        const { id, nickname, email, isadmin, created } = users;
+        res.status(200).render('users', { users });
+        console.log(users);
     }),
     // deleteUser: catchAsync(async (req, res) => {
     //     const users = await pool.query('SELECT * FROM users');
@@ -108,19 +115,17 @@ const ads = {
 
     // //EDITAR LOS DATOS DE UN USUARIO COMO ADMIN-> segun el id
     // updateUser: catchAsync(async (req, res) => {
-    //         let client, result;        
+    //         let client, result;
 
     //         client = await pool.connect(); // Espera a abrir conexion
     //         const {idUpdate, nicknameUpdate, emailUpdate, passwordUpdate} = req.body
     //         const data = await client.query(`UPDATE users SET nickname=$1 , email=$2, password=$3, picture=$4 WHERE id=$5`, [nicknameUpdate, emailUpdate, passwordUpdate, idUpdate])
     //         result = data.rowCount
-    //         client.release();    
+    //         client.release();
     //         res.status(200).render('user', {result});
     // }),
 };
 
 // UPDATE public.users SET nickname='Bobby', email='bob@changed.es', password='1111', avatar='?' WHERE id=2;
-
-
 
 module.exports = ads;
