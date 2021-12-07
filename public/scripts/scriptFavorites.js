@@ -1,9 +1,9 @@
-
+// Guarda la info de la vista (data de los anuncios en una variable)
 if (typeof document !== 'undefined') {
-    const adsData = document.querySelectorAll('.ad').forEach(item => {
+    document.querySelectorAll('.ad').forEach(item => {
         item.addEventListener('click', e => {
             let ul = e.currentTarget;
-            return {
+            const adsData = {
                 title: ul.querySelector('li.title').innerText,
                 company: ul.querySelector('li.company').innerText,
                 location: ul.querySelector('li.location').innerText,
@@ -12,28 +12,26 @@ if (typeof document !== 'undefined') {
                 image: ul.querySelector('li img.imagen').src,
                 link: ul.querySelector('li a.link').href,
             };
+            saveNewFavorite(adsData).then(data => console.log(data))
         });
     });
 }
 
-
-
-// const postNewProduct = async  (product) => {
-//     try {
-//         const data = await fetch('http://localhost:3000/user/favorites',{
-//             method:"POST",
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body:JSON.stringify(product)
-//         })
-//         const res = await data.json()
-//         return res
-
-//     } catch (error) {
-//         console.log(`ERROR: ${error.stack}`);
-//     }
-// }
-
-
+const saveNewFavorite = async (adsData) => {
+    try {
+        const data = await fetch('http://localhost:3000/user/favorites',{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(adsData)
+        })
+        const res = await data.json()
+        // console.log(res)
+        return res
+        
+    } catch (error) {
+        console.log(`ERROR: ${error.stack}`);
+    }
+}
 
