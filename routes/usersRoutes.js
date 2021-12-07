@@ -13,6 +13,8 @@ router.get('/user', securedMiddleware(), function (req, res, next) {
     });
 });
 
+// router.post('/user/favorites', userControllers.addFavorite) //Para hacer post de favoritos
+
 // router.post('/user', userControllers.updateUser);
 
 /* GET favorites. */

@@ -1,12 +1,14 @@
 // MODULES
 const pool = require('../pgdb');
 const bcrypt = require('bcrypt');
+const scriptFavorites = require ('../public/scripts/scriptFavorites');
 const catchAsync = require('../utils/catchAsync');
 
 // HANDLER FUNCTIONS
 const userControllers = {
     //Añade un favorito a la BBDD
     // addFavorite: catchAsync(async (req, res) => {
+    //     // req.body
     //     const newFavorite = await pool.query(
     //         `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
     //         VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`

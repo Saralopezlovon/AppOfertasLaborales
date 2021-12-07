@@ -15,15 +15,16 @@ block content
       div.adContainer
     if data
       each ad in data
-        img.imagen(src=ad.image)
         ul.ad
+          li
+            img.imagen(src=ad.image)
           li.title #{ad.title}
-          li.nameCompany #{ad.company}
+          li.company #{ad.company}
           li.location #{ad.location}
           li.description #{ad.description}
           li.date Fecha anuncio: #{ad.date}
           li
-            a(href=ad.link, target='_blank') Más información
+            a.link(href=ad.link, target='_blank') Más información
           if locals.user
             input.btnFavorite(type='button', value='GuardarFav')
     include ./footer.pug
