@@ -9,9 +9,6 @@ html
       div
          h1 Bienvenido #{adminName}
          div 
-         hr
-            a(href='users') Ver usuarios
-         hr
          h2 Crear anuncio
             form(action='/api/ads', method='POST')
                input(type='text', name='title', placeholder='Título del anuncio')
@@ -51,7 +48,7 @@ html
                p Descripción: #{ads.description}
                br
                br
-               hr
+               br
                //- button(id="delete-button") Eliminar oferta
                script
       include ./footer.pug

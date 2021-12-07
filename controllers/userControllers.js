@@ -6,31 +6,29 @@ const catchAsync = require('../utils/catchAsync');
 // HANDLER FUNCTIONS
 const userControllers = {
     //Añade un favorito a la BBDD
-    addFavorite: catchAsync(async (req, res) => {
-        const newFavorite = await pool.query(
-            `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link) 
-            VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`
-        );
-        res.status(200).json({ newFavorite: newFavorite.rows });
-
-        // res.status(200).render('favorites');
-    }),
-
-    
-//EDITAR LOS DATOS DE UN USUARIO -> segun el id
-    updateUser: catchAsync(async (req, res) => {
-        let client, result;        
-
-        client = await pool.connect(); // Espera a abrir conexion
-        const {idUpdate, nicknameUpdate, emailUpdate, passwordUpdate} = req.body
-        const data = await client.query(`UPDATE users SET nickname=$1 , password=$2 WHERE id=$3`, [nicknameUpdate, passwordUpdate, idUpdate])
-        result = data.rowCount
-        client.release();    
-        res.status(200).render('user', {result});
-    }),
+    // addFavorite: catchAsync(async (req, res) => {
+    //     const newFavorite = await pool.query(
+    //         `INSERT INTO favorites(fk_id_user,title,company,location,salary,description,image,link)
+    //         VALUES ((SELECT userid FROM users WHERE useremail='bob@postgres.com'),'prueba1','prueba1','prueba1','s','f','z','l')`
+    //     );
+    //     res.status(200).json({ newFavorite: newFavorite.rows });
+    //     res.status(200).render('favorites');
+    // }),
+    //EDITAR LOS DATOS DE UN USUARIO -> segun el id
+    // updateUser: catchAsync(async (req, res) => {
+    //     let client, result;
+    //     client = await pool.connect(); // Espera a abrir conexion
+    //     const { idUpdate, nicknameUpdate, emailUpdate, passwordUpdate } =
+    //         req.body;
+    //     const data = await client.query(
+    //         `UPDATE users SET nickname=$1 , password=$2 WHERE id=$3`,
+    //         [nicknameUpdate, passwordUpdate, idUpdate]
+    //     );
+    //     result = data.rowCount;
+    //     client.release();
+    //     res.status(200).render('user', { result });
+    // }),
 };
-
-
 
 // Aquí faltan los controladores para que el usuario pueda borrar su perfil
 
