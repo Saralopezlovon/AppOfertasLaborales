@@ -131,7 +131,7 @@ const scrapingTe = async tag => {
             allAdsTec.push(allAds);
         }
         await browser.close();
-        return allAdsTec; // ESTE MALDITO RETURN LO TENÍAMOS COMO CONSOLE LOG!!! ERROR!
+        return allAdsTec;
     } catch (err) {
         console.log(err);
     }
