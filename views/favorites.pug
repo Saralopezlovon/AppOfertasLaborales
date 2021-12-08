@@ -2,4 +2,21 @@ extends layout
 
 block content
   .w3-card-4
-    h2 Aquí se muestran los anuncios guardados como favoritos
+    h2 Estos son tus anuncios favoritos
+    if allFavorites
+      each favorite in allFavorites
+        ul.favorite
+          li
+            img.imagen(src=favorite.image)
+          li.title #{favorite.title}
+          li.company #{favorite.company}
+          li.location #{favorite.location}
+          li.description #{favorite.description}
+          li.date Fecha anuncio: #{favorite.date}
+          li
+            a.link(href=favorite.link, target='_blank') Más información
+          if locals.user
+            input.btnFavorite(type='button', value='Borrar favorito')
+      else
+        p No tienes ningún favorito guardado
+    include ./footer.pug

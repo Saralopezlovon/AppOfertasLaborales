@@ -9,10 +9,10 @@ app.use(cookieParser());
 
 const validateToken = async (req, res, next) => {
     console.log(req.cookiesOptions);
-    if (req.cookiesOptions.jwt) {
+    if (req.cookiesOptions.jwtCookie) {
         try {
             const decoded = await promisify(jwt.verify)(
-                req.cookiesOptions.jwt,
+                req.cookiesOptions.jwtCookie,
                 process.env.JWT_SECRET
             );
             await pool.query(
