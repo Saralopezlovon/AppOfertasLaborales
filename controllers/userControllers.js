@@ -53,6 +53,21 @@ const userControllers = {
     //     res.status(200).redirect('/user/favorites');
     // }),
 
+    //Añadir información a un usuario
+
+    addUserInfo: catchAsync(async (req, res) => {
+            const { ...userProfile } = req.user;
+            const id = parseInt(userProfile.id.slice(6), 10);            
+            const {name, lastName, favoriteLanguage} = req.body;
+            const addUserInfo = await pool.query(
+                `UPDATE users SET name=$1 , lastname=$2, favoritelanguage=$3 WHERE id=$4`,
+                [name, lastName, favoriteLanguage, id]
+            );
+            console.log(addUserInfo.rows);
+            res.status(200).redirect('/user');
+        }),
+
+
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     // updateUser: catchAsync(async (req, res) => {
     //     let client, result;

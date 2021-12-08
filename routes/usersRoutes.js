@@ -1,17 +1,29 @@
 const express = require('express');
+const pool = require('../pgdb');
+
 const securedMiddleware = require('../middlewares/securedMiddleware');
 const userControllers = require('../controllers/userControllers');
+
 
 const router = express.Router();
 
 /* GET user profile. */
-router.get('/user', securedMiddleware(), function (req, res, next) {
-    const { _raw, _json, ...userProfile } = req.user;
-    res.render('user', {
-        userProfile: JSON.stringify(userProfile, null, 2),
-        title: 'Profile page',
-    });
+router.get('/user', securedMiddleware(), async function (req, res, next) {
+    const {...userProfile } = req.user;
+    const id = parseInt(userProfile.id.slice(6), 10);        
+    const userInfo = await pool.query(
+        `SELECT name, lastname, favoritelanguage FROM users WHERE id=$1`,
+        [id]
+    );
+    const userInfoPG = userInfo.rows 
+    const allUserInfo = {...userProfile,...userInfoPG}
+    
+    console.log(allUserInfo)
+    res.status(200).render('user', {allUserInfo});
 });
+
+router.post('/user', userControllers.addUserInfo)
+
 
 // Favoritos
 router
