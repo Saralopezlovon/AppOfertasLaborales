@@ -2,7 +2,7 @@ extends layout
 
 block content
   .w3-card-4
-   h1 Bienvenido #{allUserInfo.nickname}
+   h1 #{allUserInfo.nickname}
     img(src=allUserInfo.picture, alt = 'imagen')
     p #{allUserInfo.displayName}
     p #{allUserInfo.user_metadata}
