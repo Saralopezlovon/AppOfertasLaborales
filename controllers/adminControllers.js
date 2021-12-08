@@ -110,15 +110,11 @@ const ads = {
             }
         }
         // Actualiza los campos rellenados
-        const ad = await Ad.updateOne(
-            { adID: parseInt(req.body.idUpdate, 10) },
-            updates,
-            {
-                upsert: true,
-                new: true,
-                runValidators: false,
-            }
-        );
+        await Ad.updateOne({ adID: parseInt(req.body.idUpdate, 10) }, updates, {
+            upsert: true,
+            new: true,
+            runValidators: false,
+        });
         res.status(200).redirect('/admin/dashboard');
     }),
 
@@ -136,17 +132,16 @@ const ads = {
         console.log(users.rows);
     }),
 
-    // Borrar usuarios segun su ID
-    deleteUser: catchAsync(async (req, res) => {        
-        const {idDelete} = req.body;
-        const deleteUser = await pool.query(
-            `DELETE FROM users WHERE id=$1 `,
-            [idDelete]
-        );
-        console.log(deleteUser.rows);
-        res.status(200).redirect('/admin/users');
-    }),
-
+    // // Borrar usuarios segun su ID
+    // Ojo con esto porque se borran de SQL pero no de AUTH0
+    // deleteUser: catchAsync(async (req, res) => {
+    //     const { idDelete } = req.body;
+    //     const deleteUser = await pool.query(`DELETE FROM users WHERE id=$1 `, [
+    //         idDelete,
+    //     ]);
+    //     console.log(deleteUser.rows);
+    //     res.status(200).redirect('/admin/users');
+    // }),
 
     // //EDITAR LOS DATOS DE UN USUARIO COMO ADMIN-> segun el id
     // updateUser: catchAsync(async (req, res) => {
@@ -160,7 +155,5 @@ const ads = {
     //         res.status(200).render('user', {result});
     // }),
 };
-
-// UPDATE public.users SET nickname='Bobby', email='bob@changed.es', password='1111', avatar='?' WHERE id=2;
 
 module.exports = ads;

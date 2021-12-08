@@ -3,18 +3,19 @@ extends layout
 block content
   .w3-card-4
    h1 Bienvenido #{allUserInfo.nickname}
+    br
     img(src=allUserInfo.picture, alt = 'imagen')
     p #{allUserInfo.displayName}
     p #{allUserInfo.user_metadata}
     
-    if allUserInfo.0.name 
-      p #{allUserInfo.0.name}
-    if allUserInfo.0.lastname 
-      p #{allUserInfo.0.lastname}
-    if allUserInfo.0.favoritelanguage 
-      p #{allUserInfo.0.favoritelanguage}     
+    if allUserInfo.name 
+      p Nombre: #{allUserInfo.name}
+    if allUserInfo.lastname 
+      p Apellidos: #{allUserInfo.lastname}
+    if allUserInfo.favoritelanguage 
+      p Lenguaje de programación favorito: #{allUserInfo.favoritelanguage}     
 
-    h2 Añade información a tu perfil 
+    h2 Añade o edita la información de tu perfil 
       form(action='/user', method='POST')
           input(type='text', name='name', placeholder='Nombre') 
           input(type='text', name='lastName', placeholder='Apellidos')
