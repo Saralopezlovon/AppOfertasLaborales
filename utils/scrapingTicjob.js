@@ -1,10 +1,8 @@
 // MODULOS
 const puppeteer = require('puppeteer');
 
-const tag = 'programador junior';
-
 // IIFE Function (Función asíncrona auto-ejecutable)
-(async () => {
+const scrapingTicjob = async tag => {
     try {
         // Abre el navegador (chromium)
         const browser = await puppeteer.launch({
@@ -24,7 +22,7 @@ const tag = 'programador junior';
         });
         // Escribe texto en el input seleccionado
         await page.type('#keywords-input', tag, {
-            delay: 200,
+            delay: 100,
         });
         // Click en el botón "Buscar"
         await page.waitForTimeout(2000);
@@ -80,4 +78,6 @@ const tag = 'programador junior';
     } catch (err) {
         console.error(err);
     }
-})();
+};
+
+module.exports = scrapingTicjob;

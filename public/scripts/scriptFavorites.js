@@ -12,26 +12,24 @@ if (typeof document !== 'undefined') {
                 image: ul.querySelector('li img.imagen').src,
                 link: ul.querySelector('li a.link').href,
             };
-            saveNewFavorite(adsData).then(data => console.log(data))
+            saveNewFavorite(adsData).then(data => console.log(data));
         });
     });
 }
 
-const saveNewFavorite = async (adsData) => {
+const saveNewFavorite = async adsData => {
     try {
-        const data = await fetch('http://localhost:3000/user/favorites',{
-            method:"POST",
+        const data = await fetch('http://localhost:3000/user/favorites', {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body:JSON.stringify(adsData)
-        })
-        const res = await data.json()
+            body: JSON.stringify(adsData),
+        });
+        const res = await data.json();
         // console.log(res)
-        return res
-        
+        return res;
     } catch (error) {
         console.log(`ERROR: ${error.stack}`);
     }
-}
-
+};
