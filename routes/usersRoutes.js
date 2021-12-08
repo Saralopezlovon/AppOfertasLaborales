@@ -17,7 +17,8 @@ router.get('/user', securedMiddleware(), function (req, res, next) {
 router
     .route('/user/favorites')
     .get(securedMiddleware(), userControllers.getFavorites)
-    .post(userControllers.addFavorite);
+    .post(userControllers.addFavorite)
+    // .post(userControllers.deleteFavorite);
 
 // router.post('/user/api/favorites')
 

@@ -1,7 +1,5 @@
 // MODULES
 const pool = require('../pgdb');
-const bcrypt = require('bcrypt');
-const scriptFavorites = require('../public/scripts/scriptFavorites');
 const catchAsync = require('../utils/catchAsync');
 
 // HANDLER FUNCTIONS
@@ -42,6 +40,18 @@ const userControllers = {
             allFavorites: allFavorites.rows,
         });
     }),
+
+    // deleteFavorite: catchAsync(async (req, res) => {
+    //     const { ...userProfile } = req.user;
+    //     const fkIdUser = parseInt(userProfile.id.slice(6), 10);
+    //     const {link} = req.body;
+    //     const deleteFavorites = await pool.query(
+    //         `DELETE FROM favorites WHERE fk_id_user =$1 AND link=$2`,
+    //         [fkIdUser, link]
+    //     );
+    //     console.log(deleteFavorites.rows);
+    //     res.status(200).redirect('/user/favorites');
+    // }),
 
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     // updateUser: catchAsync(async (req, res) => {
