@@ -15,7 +15,7 @@ block content
     if allUserInfo.favoritelanguage 
       p Lenguaje de programación favorito: #{allUserInfo.favoritelanguage}     
 
-    h2 Añade o edita información de tu perfil 
+    h2 Añade o edita la información de tu perfil 
       form(action='/user', method='POST')
           input(type='text', name='name', placeholder='Nombre') 
           input(type='text', name='lastName', placeholder='Apellidos')
