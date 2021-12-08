@@ -1,6 +1,7 @@
 // MÓDULOS
 const pool = require('../pgdb');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync');
 
@@ -35,7 +36,33 @@ const ads = {
                 message: 'Contraseña incorrecta',
             });
         if (userInfo.rows[0].isadmin) {
-            res.status(200).redirect('/admin/dashboard');
+            // Generamos el token
+            const userId = userInfo.rows[0].id;
+            const accesToken = jwt.sign(
+                { id: userId },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: process.env.JWT_EXPIRATION_TIME,
+                }
+            );
+            console.log(accesToken);
+
+            // Configuramos las cookies
+            const cookiesConfig = {
+                expires: new Date(
+                    Date.now() +
+                        process.env.JWT_COOKIE_EXPIRATION_TIME *
+                            24 *
+                            60 *
+                            60 *
+                            1000
+                ),
+            };
+
+            res.cookie('jwtCookie', accesToken, cookiesConfig);
+            res.redirect('/admin/dashboard');
+
+            // res.redirect('/admin/dashboard');
         } else {
             return res.status(401).json({
                 status: 'fail',
