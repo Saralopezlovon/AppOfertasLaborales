@@ -67,16 +67,6 @@ const userControllers = {
             res.status(200).redirect('/user');
         }),
 
-    getUserInfo:catchAsync(async (req, res) => {
-        const { ...userProfile } = req.user;
-        const id = parseInt(userProfile.id.slice(6), 10);        
-        const userInfo = await pool.query(
-            `SELECT name, lastname, favoritelanguage FROM users WHERE id=$1`,
-            [id]
-        );
-        console.log(""+userInfo);
-        res.status(200).render('user', {userInfo: userInfo});
-    }),
 
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
     // updateUser: catchAsync(async (req, res) => {

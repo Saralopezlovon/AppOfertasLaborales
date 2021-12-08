@@ -2,12 +2,17 @@ extends layout
 
 block content
   .w3-card-4
-    h1 Bienvenido #{user.nickname}
-    img(src=user.picture, alt = 'imagen')
-    p #{user.displayName}
-    p #{user.user_metadata}
+   h1 Bienvenido #{allUserInfo.nickname}
+    img(src=allUserInfo.picture, alt = 'imagen')
+    p #{allUserInfo.displayName}
+    p #{allUserInfo.user_metadata}
     
- 
+    if allUserInfo.0.name 
+      p #{allUserInfo.0.name}
+    if allUserInfo.0.lastname 
+      p #{allUserInfo.0.lastname}
+    if allUserInfo.0.favoritelanguage 
+      p #{allUserInfo.0.favoritelanguage}     
 
     h2 Añade información a tu perfil 
       form(action='/user', method='POST')
