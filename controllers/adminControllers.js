@@ -135,10 +135,18 @@ const ads = {
         res.status(200).render('users', { users: users.rows });
         console.log(users.rows);
     }),
-    // deleteUser: catchAsync(async (req, res) => {
-    //     const users = await pool.query('SELECT * FROM users');
-    //     res.status(200).render('users', {users});
-    // }),
+
+    // Borrar usuarios segun su ID
+    deleteUser: catchAsync(async (req, res) => {        
+        const {idDelete} = req.body;
+        const deleteUser = await pool.query(
+            `DELETE FROM users WHERE id=$1 `,
+            [idDelete]
+        );
+        console.log(deleteUser.rows);
+        res.status(200).redirect('/admin/users');
+    }),
+
 
     // //EDITAR LOS DATOS DE UN USUARIO COMO ADMIN-> segun el id
     // updateUser: catchAsync(async (req, res) => {
