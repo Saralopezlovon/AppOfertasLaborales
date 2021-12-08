@@ -15,19 +15,17 @@ html
                input(type='text', name='avatar', placeholder='Imagen')
                input(type='submit', value='Editar usuario')
          h1 Borrar usuario por id
-            form(action='/admin/profiles/delete', method='POST')
+            form(action='/admin/users/delete', method='POST')
                input(type='text', name='idDelete', placeholder='ID del usuario')
                input(type='submit', value='Borrar usuario')
       div             
          h2 Listado de usuarios registrados en TSR:
          section.card
          each user in users
-            div.container            
-               h2 Nombre: #{nickname}        
-               h3 Email: #{email}               
-               p Rol: #{isadmin} 
-               p ID: #{id}
-               p Creado: #{created}
+            div.container                   
+               h3 Email: #{user.email} 
+               p ID: #{user.id}
+               p Creado: #{user.created}
                br
                hr
       script
