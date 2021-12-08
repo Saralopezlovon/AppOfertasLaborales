@@ -13,15 +13,11 @@ router.get('/user', securedMiddleware(), function (req, res, next) {
     });
 });
 
-// Favoritos 
+// Favoritos
 router
     .route('/user/favorites')
-    .get(userControllers.getFavorites)
+    .get(securedMiddleware(), userControllers.getFavorites)
     .post(userControllers.addFavorite);
-
-
-
-
 
 // router.post('/user/api/favorites')
 
@@ -31,7 +27,7 @@ router
 //     });
 // });
 
-// Actualizar usuario 
+// Actualizar usuario
 // router.post('/user', userControllers.updateUser);
 
 /* GET favorites. */

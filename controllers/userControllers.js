@@ -31,7 +31,16 @@ const userControllers = {
     }),
 
     getFavorites: catchAsync(async (req, res) => {
-        res.status(200).render('favorites');
+        const { ...userProfile } = req.user;
+        const fkIdUser = parseInt(userProfile.id.slice(6), 10);
+        const allFavorites = await pool.query(
+            `SELECT * FROM favorites WHERE fk_id_user = $1`,
+            [fkIdUser]
+        );
+        console.log(allFavorites.rows);
+        res.status(200).render('favorites', {
+            allFavorites: allFavorites.rows,
+        });
     }),
 
     //EDITAR LOS DATOS DE UN USUARIO -> segun el id
