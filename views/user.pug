@@ -5,6 +5,7 @@ block content
     h1 Bienvenido #{user.nickname}
     img(src=user.picture, alt = 'imagen')
     p #{user.displayName}
+    p #{user.user_metadata}
     //- h2 Editar perfil 
     //-   form(action='/user', method='POST')
     //-       input(type='text', name='idUpdate') 
