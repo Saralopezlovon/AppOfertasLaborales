@@ -5,7 +5,7 @@ block content
       link(rel="stylesheet", href="../styles/search.css")
     body  
     if locals.user
-      h4 Bienvenido #{allUserInfo.nickname}
+      h4 Bienvenido #{user.nickname}
     else
       p Para poder guardar ofertas como favoritas, por favor #[a(href="/login") inicia sesión].
     div#container  
@@ -35,7 +35,7 @@ block content
             li
               a.link(href=ad.link, target='_blank') Más información
             if locals.user
-              input(type='image', src='../assets/352344_favorite_icon.png', id='imgSearch') 
+              input(type='image', src='../assets/352344_favorite_icon.png', id='imgSearch', onClick="alert('Guardado en favorito')")
               //- input.btnFavorite(type='button', value='GuardarFav')
       else 
         p.label ¿Preparado para encontrar tu primer empleo como desarrolador?
