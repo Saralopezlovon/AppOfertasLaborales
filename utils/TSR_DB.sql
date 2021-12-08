@@ -4,12 +4,14 @@ CREATE DATABASE tsrjobsapp;
 
 CREATE TABLE users (
   id SERIAL  PRIMARY KEY,
-  nickname VARCHAR(200),
+  name VARCHAR(200),
+  lastname VARCHAR(200),
   email VARCHAR (100) NOT NULL UNIQUE, 
   password VARCHAR (255) NOT NULL,
   picture VARCHAR (2550),
-	isadmin BOOLEAN DEFAULT False, 
-  created timestamp NOT NULL DEFAULT now() 
+  favoritelanguage VARCHAR(200),  
+  isadmin BOOLEAN DEFAULT False, 
+  created timestamp NOT NULL DEFAULT now()
 );
   
 -- DROP TABLE users 

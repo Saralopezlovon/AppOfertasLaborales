@@ -6,11 +6,14 @@ block content
     img(src=user.picture, alt = 'imagen')
     p #{user.displayName}
     p #{user.user_metadata}
-    //- h2 Editar perfil 
-    //-   form(action='/user', method='POST')
-    //-       input(type='text', name='idUpdate') 
-    //-       input(type='text', name='nicknameUpdate', placeholder='Nuevo nickname')
-    //-       input(type='text', name='passwordUpdate', placeholder='Editar contraseña')
-    //-       input(type='submit', value='Editar perfil')
-    pre 
-      code #{userProfile}
+    
+ 
+
+    h2 Añade información a tu perfil 
+      form(action='/user', method='POST')
+          input(type='text', name='name', placeholder='Nombre') 
+          input(type='text', name='lastName', placeholder='Apellidos')
+          input(type='text', name='favoriteLanguage', placeholder='Lenguaje de programación preferido')
+          input(type='submit', value='Guardar información')
+  include ./footer.pug
+     

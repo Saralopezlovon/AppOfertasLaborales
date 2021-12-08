@@ -13,6 +13,12 @@ router.get('/user', securedMiddleware(), function (req, res, next) {
     });
 });
 
+router
+    .route('/user')
+    .get(userControllers.getUserInfo)
+    .post(userControllers.addUserInfo)
+
+
 // Favoritos
 router
     .route('/user/favorites')
