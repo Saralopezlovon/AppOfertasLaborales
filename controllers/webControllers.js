@@ -2,6 +2,7 @@
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync');
 const scrapingTe = require('../utils/scrapingTe');
+const scrapingTicjob = require('../utils/scrapingTicjob');
 
 // HANDLER FUNCTIONS
 const adsWeb = {
@@ -9,10 +10,9 @@ const adsWeb = {
     getAllAdsSearch: catchAsync(async (req, res) => {
         const allAds = await Ad.find({ title: req.body.titleSearched });
         // usar metodo de JS tolowercase en variable
-        console.log(allAds);
         const scrapingTeAds = await scrapingTe(req.body.titleSearched);
-        const data = [...scrapingTeAds, ...allAds]; // Usamos Spread Operator para combinar los arrays
-        console.log(data);
+        // const scrapingTicjobAds = await scrapingTicjob(req.body.titleSearched);
+        const data = [/*scrapingTicjobAds,*/ ...scrapingTeAds, ...allAds]; // Usamos Spread Operator para combinar los arrays
         res.status(200).render('index', { data: data });
     }),
 };

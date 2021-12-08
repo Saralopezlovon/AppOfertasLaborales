@@ -25,12 +25,12 @@ const scrapingTe = async tag => {
         });
         //Escribe texto en el input seleccionado
         await page.type('#te', tag, {
-            delay: 200,
+            delay: 100,
         });
 
         //Hacemos click en el botón "Buscar"
 
-        await page.waitForTimeout(2000);
+        // await page.waitForTimeout(2000); NO AFECTA
         await page.click('.btn-warning');
 
         //·················FILTRO··················//
@@ -43,7 +43,7 @@ const scrapingTe = async tag => {
             }
         );
         // Espera 4 seg para poder hacer click
-        await page.waitForTimeout(4000);
+        // await page.waitForTimeout(4000); NO AFECTA
 
         //Hacemos click en la opción "sin experiencia"
         await page.click(
@@ -59,7 +59,7 @@ const scrapingTe = async tag => {
                 visible: true,
             }
         );
-        await page.waitForTimeout(2000);
+        // await page.waitForTimeout(2000); NO AFECTA
 
         // Extraemos en un array los links de las ofertas de trabajo
 
@@ -89,7 +89,7 @@ const scrapingTe = async tag => {
 
             // TITULO-Cuando esta visible, todos estan visibles
             await page.waitForSelector('h1[itemprop="title"]');
-            await page.waitForTimeout(1000);
+            // await page.waitForTimeout(1000); NO AFECTA
 
             //ENLACE
 
@@ -97,7 +97,7 @@ const scrapingTe = async tag => {
 
             await page.waitForSelector('form[name="enviar"]'); // 'https://www.tecnoempleo.com/validacion_enviar.php'
             await page.waitForSelector('form[name="enviar"] input'); //'1c1co2c0er4d5z5494t0'
-            await page.waitForTimeout(1000);
+            // await page.waitForTimeout(1000); NO AFECTA
 
             // Creamos un objeto vacío para almacenar los datos
             const allAds = await page.evaluate(() => {
