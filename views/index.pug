@@ -5,7 +5,7 @@ block content
       link(rel="stylesheet", href="../styles/search.css")
     body  
     if locals.user
-      h4 Bienvenido #{userInfo}
+      h4 Bienvenido #{allUserInfo.nickname}
     else
       p Para poder guardar ofertas como favoritas, por favor #[a(href="/login") inicia sesión].
     div#container  
