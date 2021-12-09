@@ -3,21 +3,34 @@ html
   head
     title= title
     link(rel="stylesheet",href="../styles/normalize.css")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href="/styles/header.css")
+    script(src="https://kit.fontawesome.com/5a088c105a.js" crossorigin="anonymous")
+    script( defer src="./scripts/navBar.js")
     script( defer src="./scripts/scriptFavorites.js")
-    script( defer src="./scripts/scriptDeleteFavorites.js")  
+    script( defer src="./scripts/scriptDeleteFavorites.js")
+  body   
+    header.header
+      nav.navbar
+        a.nav-logo(href='#') TSR
+        ul.nav-menu
+          li.nav-item
+            a.nav-link(href="/") Home
+          if locals.user
+            li.nav-item
+              a.nav-link(href="/user") Perfil
+            li.nav-item
+              a.nav-link(href="/user/favorites") Favoritos
+            li.nav-item
+              a.nav-link(href="/logout") Desconectar
+          else
+            li.nav-item
+              a.nav-link(href="/login") Iniciar sesión
+            li.nav-item
+              a.nav-link(href="/admin/login") Soy admin
+        .hamburger
+          span.bar
+          span.bar
+          span.bar
+  block content
 
-
-  body
-    nav.w3-bar.w3-border.w3-light-grey( role="navigation" )
-      .w3-bar-item.w3-text-grey TSR Jobs App
-      a(href="/").w3-bar-item.w3-button Inicio
-      if locals.user
-        a(href="/user" id="profileDropDown").w3-bar-item.w3-button Perfil
-        a(href="/user/favorites" id="favoritesDropDown").w3-bar-item.w3-button Favoritos
-        a(id="qsLogoutBtn" href="/logout").w3-bar-item.w3-button Desconectar
-      else
-        a(id="qsLoginBtn" href="/login").w3-bar-item.w3-button Iniciar sesión
-        a(id="adminLoginBtn" href="/admin/login").w3-bar-item.w3-button Soy admin
-    block content
+        
