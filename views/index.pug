@@ -5,9 +5,9 @@ block content
       link(rel="stylesheet", href="../styles/search.css")
     body  
     if locals.user
-      h4 Bienvenido #{user.nickname}
+      h4 Bienvenido/a #{user.nickname}
     else
-      p Para poder guardar ofertas como favoritas, por favor #[a(href="/login") inicia sesión].
+      p#infoSesion Para poder guardar ofertas como favoritas, por favor #[a(href="/login") inicia sesión].
     div#container  
       section.logo 
         img(src="../assets/Screenshot 2021-12-08 at 18.32.48.png", alt="Loading results" id="logo")
@@ -15,36 +15,27 @@ block content
         h1.titleSearch Buscar:
         form.formSearch(action='/', method='POST')
           input.titleSearched(type='text', name='titleSearched', placeholder='Ej: JavaScript') 
-          //- input.btnSearch(type='submit', value='Buscar')
           input(type='image', src='../assets/search.png', id='imgSearch') 
-      section.results
-        div#loading
-          img(src="../assets/clipart2006315.png", alt="Loading results" id="loader")
-        div.adContainer
       if data
-        p #{tag}
-          //- falta mostrar la palabra buscada
         each ad in data
           div.allContent
-            h4.title #{ad.title}
-            div.adCard
-              div.imgCard
+            ul.ad                
+              li.title #{ad.title}
+              li.adImage
                 img.imagen(src=ad.image)
-              div.contentCard
-                ul.ad                
-                  li.company #{ad.company}
-                  br
-                  li.location #{ad.location}
-                  br
-                  li.description #{ad.description}
-                  br
-                  li.date Fecha anuncio: #{ad.date}
-                  br
-                  li.info
-                    a.link(href=ad.link, target='_blank') Más información
-                  if locals.user
-                    li.favorite
-                      input(type='image', src='../assets/352344_favorite_icon.png', id='imgSave', onClick="alert('Guardado en favorito')")
+              li.company #{ad.company}
+              br
+              li.description #{ad.description}
+              br
+              li.date Fecha anuncio: #{ad.date}
+              br
+              li.location #{ad.location}
+              br
+              li.info
+                a.link(href=ad.link, target='_blank') Más información
+              if locals.user
+                li.favorite
+                  input(type='image', src='../assets/352344_favorite_icon.png', id='imgSave', onClick="alert('Guardado en favorito')")
       else 
           p.label ¿Preparado para encontrar tu primer empleo como desarrolador?
           p.label En TSR seleccionaremos ofertas sin experiencia dentro de España. Tu sólo indica el lenguaje buscas

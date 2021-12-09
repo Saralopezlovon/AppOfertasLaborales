@@ -1,19 +1,19 @@
 body{
     background-image: url(../assets/program-code-black-backgrounds-programming-background-with-program-code-code-besthqwallpapers.com-1792x1120.jpg);
-    /* background-position: center; */
-    /* background-repeat: no-repeat;  */
+    /* background-color: #7265e3b2; */
     object-fit: cover;
+}
+
+p#infoSesion{
+    color: white;
+    font-size: 0.9rem;
 }
 
 #logo{
     max-width: 90px;
 }
 
-p{
-    color: white;
-    font-size: 0.9rem;
-}
-
+/* Contenedor principal */
 #container {
     margin: auto;
     padding: 0 1rem;
@@ -22,15 +22,19 @@ p{
     flex-direction: column;
 }
 
+/* Parrafos incio */
+.label{
+    font-size: 1.3rem;
+}
+
 /* BUSCADOR  */
+.titleSearch{
+    color: white;
+}
+
 form{
     display: flex;
     flex-direction: row;
-}
-
-/* Titulo  */
-.titleSearch{
-    color: white;
 }
 
 /* Lupita  */
@@ -41,44 +45,12 @@ form{
     padding: 4px;
 }
 
-#imgSave{
-    max-height: 40px; 
-    width: 40px;
-}
-
 input {
     width: 100%;
     height: 4rem;
 }
 
-.label{
-    font-size: 1.3rem;
-}
-
-button {
-    margin: 2rem 0;
-    width: 100%;
-    padding: 8px 0;
-    cursor: pointer;
-}
-
-.imagen{
-    width: auto;
-    height: 100px;
-    margin: 0% 8% 0% 8%;
-    border-radius: 100px;
-}
-
-li{
-    list-style: none;
-}
-
-h4.title{
-    font-weight: bolder;
-    font-size: 1.4rem;
-    text-align: center;
-}
-
+/* ANUNCIOS */
 div.allContent{
     background-color: rgba(255, 255, 255, 0.884); 
     margin: 10px;
@@ -86,40 +58,48 @@ div.allContent{
     border-radius: 7px;
 }
 
-div.adCard{
-    display: flex;
-    flex-direction: row;
+ul{
+    padding:40px;
+}
+
+li{
+    list-style: none;
+}
+
+li.title{
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.imagen{
+    width: auto;
+    height: 100px;
+    margin: 0% 8% 0% 8%;
+    border-radius: 100px;
+    margin-left: 40%;    
+}
+
+li.company{
+    text-align: center;
+}
+
+li.location{
+    text-align: right;
+    margin-right: 8px;
+}
+
+li.description{
+    text-align: justify;
+    margin-right: 8px;
 }
 
 li.info{
     color: #F61067;
 }
 
-li.description{
-    text-align: justify;
-    margin-right: 10%;
-}
-
-/* creating css loader */
-
-#loading {
-    width: 2rem;
-    height: 2rem;
-    border: 5px solid #f3f3f3;
-    border-top: 6px solid #9c41f2;
-    border-radius: 100%;
-    margin: auto;
-    visibility: hidden;
-    animation: spin 1s infinite linear;
-}
-#loading.display {
-    visibility: visible;
-}
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+#imgSave{
+    max-height: 40px; 
+    width: 40px;
+    margin-left: 90%;    
 }
