@@ -6,7 +6,7 @@ const scrapingTicjob = async tag => {
     try {
         // Abre el navegador (chromium)
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             // devtools: true,
         });
 

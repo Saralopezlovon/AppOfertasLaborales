@@ -24,9 +24,9 @@ input {
     --pink-color: #F61067;
     --white-color: #FFFFFF;
     --dark-color: #323031;
-    --card-border-radius: 4px;
-    --card-box-shadow: 10px;
-    --btn-border-radius: 4px;
+    --card-border-radius: 30px;
+    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --btn-border-radius: 5px;
     }
 
 /* h1{
