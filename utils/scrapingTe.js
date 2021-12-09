@@ -117,7 +117,7 @@ const scrapingTe = async tag => {
                     description: document.querySelector(
                         'p[class="fs--16 text-gray-800"]'
                     ).innerText,
-                    image: document.querySelector('img').src,
+                    image: document.querySelector('img[class="max-h-150 h-100 bg-suprime opacity--9"]').src,
                     date: document.querySelector('span[class="ml-4"]')
                         .innerText,
                     link: `${document
