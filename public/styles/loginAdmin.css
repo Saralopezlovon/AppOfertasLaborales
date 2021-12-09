@@ -1,0 +1,122 @@
+body{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 44.2rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+}
+
+/*Login*/
+
+.loginEmail{
+    /* margin-top: 80px; */
+    width: 26rem;
+    /* height: 24rem; */
+    border: 1px solid #f3f1f1d7;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left:25px;
+    border-radius: var(--card-border-radius); 
+    
+    -webkit-box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
+    -moz-box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
+    box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
+}
+
+.img{
+    margin-top: 35px;
+    margin-bottom: 35px;;
+    width: 60px;
+}
+
+.titleSectionEmail{
+    margin-top: 0px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+}
+
+.formLogin{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;  
+}
+
+
+.email{
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 20rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    border:1px solid gray;
+    
+}
+
+.password{
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 20rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    border:1px solid gray;
+}
+
+.btnRegister{
+    padding: 15px;
+    width: 21.3rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    background-color: var(--pink-color);
+    color:white;
+    border-radius: var(--btn-border-radius); 
+    border: solid 1px var(--pink-color);
+    margin-bottom: 35px;
+
+}
+
+/*Otros*/
+
+.loginOthers{
+    margin-left: 25px;
+}
+
+.fbContainer{
+    border:1px solid gray;
+    width: 600px;
+    margin-top:20px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.googleContainer{
+    border:1px solid gray;
+    width: 600px;
+    margin-top:10px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconImage{    
+    height: 100px;
+    border-radius: 99%;
+    margin:10px;
+}
+
+
+.rsLink{
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}

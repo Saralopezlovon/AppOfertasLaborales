@@ -1,4 +1,15 @@
-input {
-    display: block;
-    /* padding: 1rem 2rem; */
-}
+:root {
+    --purple-color: #7165E3;
+    --pink-color: #F61067;
+    --white-color: #FFFFFF;
+    --dark-color: #323031;
+    --card-border-radius: 4px;
+    --card-box-shadow: 10px;
+    --btn-border-radius: 4px;
+    }
+
+/* h1{
+    background-color: yellow;
+} */
+
+/* border-radius: var(--card-border-radius) */
