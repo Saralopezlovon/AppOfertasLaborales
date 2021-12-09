@@ -76,6 +76,8 @@
     font-weight: 400;
     font-size:  1.350rem;
     position: relative;
+    top: 1px;
+    left: -156px;
 }
 .link{
     margin-bottom: 10px;
@@ -84,10 +86,16 @@
     font-weight: 400;
     font-size:  1.350rem;
     position: relative;
+    top: -6px;
+    left: -150px;
+
 }
 
 .btnDelete{
     height: 2rem;
+    position: relative;
+    top: -27px;
+    left: 186px;
 }
 
 
