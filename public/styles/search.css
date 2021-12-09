@@ -1,16 +1,105 @@
-/* section.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    }
+body{
+    background-image: url(../assets/program-code-black-backgrounds-programming-background-with-program-code-code-besthqwallpapers.com-1792x1120.jpg);
+    /* background-color: #7265e3b2; */
+    object-fit: cover;
+}
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
+p#infoSesion{
+    color: white;
+    font-size: 0.9rem;
+}
 
-.container {
-    padding: 2px 16px;
-    }
+#logo{
+    max-width: 90px;
+}
 
-img {
-    border-radius: 5px 5px 0 0;
-    } */
+/* Contenedor principal */
+#container {
+    margin: auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Parrafos incio */
+.label{
+    font-size: 1.3rem;
+}
+
+/* BUSCADOR  */
+.titleSearch{
+    color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Lupita  */
+#imgSearch{
+    max-height: 40px; 
+    width: 40px;
+    margin: 10px;
+    padding: 4px;
+}
+
+input {
+    width: 100%;
+    height: 4rem;
+}
+
+/* ANUNCIOS */
+div.allContent{
+    background-color: rgba(255, 255, 255, 0.884); 
+    margin: 10px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+ul{
+    padding:40px;
+}
+
+li{
+    list-style: none;
+}
+
+li.title{
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.imagen{
+    width: auto;
+    height: 100px;
+    margin: 0% 8% 0% 8%;
+    border-radius: 100px;
+    margin-left: 40%;    
+}
+
+li.company{
+    text-align: center;
+}
+
+li.location{
+    text-align: right;
+    margin-right: 8px;
+}
+
+li.description{
+    text-align: justify;
+    margin-right: 8px;
+}
+
+li.info{
+    color: #F61067;
+}
+
+#imgSave{
+    max-height: 40px; 
+    width: 40px;
+    margin-left: 90%;    
+}

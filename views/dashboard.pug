@@ -1,54 +1,65 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="../styles/styles.css")
-      link(rel="stylesheet",href="../styles/dashboard.css")
       link(rel="stylesheet",href="../styles/normalize.css")
+      link(rel="stylesheet",href="../styles/dashboard.css")
       title="Ofertas"
+      
    body
-      div
-         h1 Bienvenido #{adminName}
-         div 
-         h2 Crear anuncio
-            form(action='/api/ads', method='POST')
-               input(type='text', name='title', placeholder='Título del anuncio')
-               input(type='text', name='company', placeholder='Empresa')
-               input(type='text', name='location', placeholder='Ubicación del empleo')
-               input(type='text', name='salary', placeholder='Salario')
-               input(type='text', name='description', placeholder='Descripción del empleo')
-               input(type='text', name='logo', placeholder='Logo de la empresa')
-               input(type='text', name='link', placeholder='Enlace al empleo')
-               input(type='submit', value='Crear oferta')
-         h2 Editar anuncio
-            form(action='/admin/ads/update', method='POST')
-               input(type='text', name='idUpdate', placeholder='ID del anuncio a editar')
-               input(type='text', name='title', placeholder='Título del anuncio')
-               input(type='text', name='company', placeholder='Empresa')
-               input(type='text', name='location', placeholder='Ubicación del empleo')
-               input(type='text', name='salary', placeholder='Salario')
-               input(type='text', name='description', placeholder='Descripción del empleo')
-               input(type='text', name='logo', placeholder='Logo de la empresa')
-               input(type='text', name='link', placeholder='Enlace al empleo')
-               input(type='submit', value='Editar oferta')
-         h2 Borrar anuncio
-            form(action='/admin/ads/delete', method='POST')
-               input(type='text', name='idDelete', placeholder='ID del anuncio')
-               input(type='submit', value='Borrar anuncio')
-      div             
-         h2 Mis ofertas creadas:
-         section.card
-         each ads in allAds
-            div.container            
-               img.image(src=ads.image, alt=ads.company, style='width:100%')              
-               h2 #{ads.title} 
-               h3 ID anuncio: #{ads.adID}               
-               p Empresa: #{ads.company} 
-               p Ubicación: #{ads.location}
-               p Salario: #{ads.salary}
-               p Descripción: #{ads.description}
-               br
-               br
-               br
-               //- button(id="delete-button") Eliminar oferta
-               script
+      header.header
+         nav.nav
+            div.logo__container
+               h2 logo
+            div.menu__container 
+               ul.list__container
+                  li Administrar anuncios 
+                  li Administrar usuarios
+            div.hamb__container 
+               h2 menu
+      main.main__container
+         section.section__container
+            div.div__container
+               h2.section__title Crear un nuevo anuncio
+               form(action='/api/ads', method='POST')
+                  input.input(type='text', name='title', placeholder='Título del anuncio')
+                  input.input(type='text', name='company', placeholder='Empresa')
+                  input.input(type='text', name='location', placeholder='Ubicación del empleo')
+                  input.input(type='text', name='salary', placeholder='Salario')
+                  input.input(type='text', name='description', placeholder='Descripción del empleo')
+                  input.input(type='text', name='logo', placeholder='Link al logo de la empresa')
+                  input.input(type='text', name='link', placeholder='Enlace al empleo')
+                  input.input(type='submit', value='Crear oferta')               
+            div.div__container
+               h2.section__title Editar anuncio
+               form(action='/admin/ads/update', method='POST')
+                  input(type='text', name='idUpdate', placeholder='ID del anuncio a editar')
+                  input(type='text', name='title', placeholder='Título del anuncio')
+                  input(type='text', name='company', placeholder='Empresa')
+                  input(type='text', name='location', placeholder='Ubicación del empleo')
+                  input(type='text', name='salary', placeholder='Salario')
+                  input(type='text', name='description', placeholder='Descripción del empleo')
+                  input(type='text', name='logo', placeholder='Logo de la empresa')
+                  input(type='text', name='link', placeholder='Enlace al empleo')
+                  input(type='submit', value='Editar oferta')    
+               h2.section__title Borrar anuncio
+               form(action='/admin/ads/delete', method='POST')
+                  input(type='text', name='idDelete', placeholder='ID del anuncio')
+                  input(type='submit', value='Borrar anuncio')          
+         div             
+            h2 Mis ofertas creadas:
+            section.card
+            each ads in allAds
+               div.container            
+                  img.image(src=ads.image, alt=ads.company, style='width:100%')              
+                  h2 #{ads.title} 
+                  h3 ID anuncio: #{ads.adID}               
+                  p Empresa: #{ads.company} 
+                  p Ubicación: #{ads.location}
+                  p Salario: #{ads.salary}
+                  p Descripción: #{ads.description}
+                  br
+                  br
+                  br
+                  //- button(id="delete-button") Eliminar oferta
+                  script
       include ./footer.pug

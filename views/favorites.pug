@@ -5,7 +5,7 @@ block content
     h2 Estos son tus anuncios favoritos
     if allFavorites
       each favorite in allFavorites
-        ul.favorite
+        ul.favoriteCard
           li
             img.imagen(src=favorite.image)
           li.title #{favorite.title}
@@ -18,5 +18,5 @@ block content
           if locals.user
             input.btnFavorite(type='button', value='Borrar favorito')
       else
-        p No tienes ningún favorito guardado
+        p No tienes ningún favorito guardado        
   include ./footer.pug

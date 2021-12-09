@@ -26,8 +26,8 @@ router.post('/user', userControllers.addUserInfo);
 router
     .route('/user/favorites')
     .get(securedMiddleware(), userControllers.getFavorites)
-    .post(userControllers.addFavorite);
-// .post(userControllers.deleteFavorite);
+    .post(userControllers.addFavorite)
+    .delete(userControllers.deleteFavorite);
 
 // router.post('/user/api/favorites')
 

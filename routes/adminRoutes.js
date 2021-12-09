@@ -7,7 +7,7 @@ const router = express.Router();
 // ROUTES
 router.get(
     '/admin/dashboard',
-    //validateAdminToken, // Validar el token del admin
+    validateAdminToken, // Validar el token del admin
     adminControllers.getDashboard
 );
 // Routes de los anuncios de la BBDD de MongoDB

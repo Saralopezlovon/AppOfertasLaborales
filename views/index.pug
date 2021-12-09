@@ -1,30 +1,43 @@
 extends layout
-
 block content
   .w3-container
+    head 
+      link(rel="stylesheet", href="../styles/search.css")
+    body  
     if locals.user
-      h4 Has iniciado sesión!
+      h4 Bienvenido/a #{user.nickname}
     else
-      h4 No estás logeado! Por favor #[a(href="/login") inicia sesión].
-    section.search    
-      h1.titleSearch Buscar ofertas
-      form.formSearch(action='/', method='POST')
-        input.titleSearched(type='text', name='titleSearched', placeholder='Buscar oferta de empleo') 
-        input.btnSearch(type='submit', value='Buscar')
-    section.results
-      div.adContainer
-    if data
-      each ad in data
-        ul.ad
-          li
-            img.imagen(src=ad.image)
-          li.title #{ad.title}
-          li.company #{ad.company}
-          li.location #{ad.location}
-          li.description #{ad.description}
-          li.date Fecha anuncio: #{ad.date}
-          li
-            a.link(href=ad.link, target='_blank') Más información
-          if locals.user
-            input.btnFavorite(type='button', value='GuardarFav')
-    include ./footer.pug
+      p#infoSesion Para poder guardar ofertas como favoritas, por favor #[a(href="/login") inicia sesión].
+    div#container  
+      section.logo 
+        img(src="../assets/Screenshot 2021-12-08 at 18.32.48.png", alt="Loading results" id="logo")
+      section.search    
+        h1.titleSearch Buscar:
+        form.formSearch(action='/', method='POST')
+          input.titleSearched(type='text', name='titleSearched', placeholder='Ej: JavaScript') 
+          input(type='image', src='../assets/search.png', id='imgSearch') 
+      if data
+        each ad in data
+          div.allContent
+            ul.ad                
+              li.adImage
+                img.imagen(src=ad.image)
+              li.title #{ad.title}
+              br
+              li.company #{ad.company}
+              br
+              li.description #{ad.description}
+              br
+              li.date Fecha anuncio: #{ad.date}
+              br
+              li.location #{ad.location}
+              br
+              li.info
+                a.link(href=ad.link, target='_blank') Más información
+              if locals.user
+                li.favorite
+                  input(type='image', src='../assets/352344_favorite_icon.png', id='imgSave', onClick="alert('Guardado en favorito')")
+      else 
+          p.label ¿Preparado para encontrar tu primer empleo como desarrolador?
+          p.label En TSR seleccionaremos ofertas sin experiencia dentro de España. Tu sólo indica el lenguaje buscas
+      include ./footer.pug

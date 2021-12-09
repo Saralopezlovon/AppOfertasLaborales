@@ -8,11 +8,10 @@ const app = express();
 app.use(cookieParser());
 
 const validateToken = async (req, res, next) => {
-    console.log(req.cookiesOptions);
-    if (req.cookiesOptions.jwtCookie) {
+    if (req.cookies.jwtCookie) {
         try {
             const decoded = await promisify(jwt.verify)(
-                req.cookiesOptions.jwtCookie,
+                req.cookies.jwtCookie,
                 process.env.JWT_SECRET
             );
             await pool.query(
