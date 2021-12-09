@@ -20,9 +20,10 @@ block content
         each ad in data
           div.allContent
             ul.ad                
-              li.title #{ad.title}
               li.adImage
                 img.imagen(src=ad.image)
+              li.title #{ad.title}
+              br
               li.company #{ad.company}
               br
               li.description #{ad.description}
