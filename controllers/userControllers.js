@@ -34,8 +34,7 @@ const userControllers = {
         const allFavorites = await pool.query(
             `SELECT * FROM favorites WHERE fk_id_user = $1`,
             [fkIdUser]
-        );
-        console.log(allFavorites.rows);
+        );        
         res.status(200).render('favorites', {
             allFavorites: allFavorites.rows,
         });
