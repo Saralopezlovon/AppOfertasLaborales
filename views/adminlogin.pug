@@ -1,14 +1,20 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="../styles/login.css")
+      link(rel="stylesheet", href="../styles/styles.css")
       link(rel="stylesheet", href="../styles/normalize.css")
+      link(rel="stylesheet", href="../styles/loginAdmin.css")
+      link(rel="stylesheet", href="../styles/normalize.css")
+      link(rel="preconnect" href="https://fonts.googleapis.com")
+      link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+      link(href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" rel="stylesheet")
       title="Login"
 body
    section.loginEmail
-      h1.titleSectionEmail Admin login   
+      img.img(src="https://png.pngtree.com/png-vector/20210302/ourlarge/pngtree-letter-b-logo-png-image_2978120.jpg")
+      h1.titleSectionEmail Bienvenido administrador   
       form.formLogin(action='/admin/login', method='POST')
-         input.email(type="email", name='userEmail' /*pattern=".+@globex\.com"*/, size="30", required, placeholder='Email')
-         input.password(type="password", name = 'userPassword' /*pattern=".{6,}"*/, placeholder="Contraseña", required)
+         input.email(type="email", name='userEmail', size="30", required, placeholder='Email')
+         input.password(type="password", name = 'userPassword', placeholder="Contraseña", required)
          input.btnRegister(type='submit', value='Login')
          
