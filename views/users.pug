@@ -22,19 +22,19 @@ html
                span.bar
                span.bar
                span.bar
-      div 
-         h1 Editar usuario por id
-            form(action='/admin/users' method='POST')
-               input(type='text' name='idUpdate' placeholder='ID del usuario a editar')
-               input(type='text' name='name' placeholder='Nombre')
-               input(type='text' name='email' placeholder='Email')
-               input(type='text' name='password' placeholder='Contraseña')
-               input(type='text' name='avatar' placeholder='Imagen')
-               input(type='submit' value='Editar usuario')
-         h1 Borrar usuario por id
-            form(action='/admin/users' method='POST')
-               input(type='text' name='idDelete' placeholder='ID del usuario')
-               input(type='submit' value='Borrar usuario')
+      //- div 
+      //-    h1 Editar usuario por id
+      //-       form(action='/admin/users' method='POST')
+      //-          input(type='text' name='idUpdate' placeholder='ID del usuario a editar')
+      //-          input(type='text' name='name' placeholder='Nombre')
+      //-          input(type='text' name='email' placeholder='Email')
+      //-          input(type='text' name='password' placeholder='Contraseña')
+      //-          input(type='text' name='avatar' placeholder='Imagen')
+      //-          input(type='submit' value='Editar usuario')
+      //-    h1 Borrar usuario por id
+      //-       form(action='/admin/users' method='POST')
+      //-          input(type='text' name='idDelete' placeholder='ID del usuario')
+      //-          input(type='submit' value='Borrar usuario')
       div             
          h2 Listado de usuarios registrados en TSR:
          section.card

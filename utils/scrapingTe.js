@@ -78,7 +78,7 @@ const scrapingTe = async tag => {
                 );
             });
 
-            return linksArr;
+            return linksArr.slice(0, 4);
         });
 
         //·················LOOP EXTRACCIÓN DE DATOS·····················//
