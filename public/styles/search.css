@@ -4,23 +4,27 @@ body{
     font-size: 2rem;
 }
 
+
+
 p#infoSesion{
     font-size: 2.5rem;
     margin-bottom: 20px;
     margin-left: 40px;
 }
 
-#logo{
-    max-width: 150px;
+.logo{
+    display: flex;
+    justify-content: center;
 }
 
 /* Contenedor principal */
 #container {
     margin: auto;
     padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    /* display: flex; */
+    /* align-items: center;
+    flex-direction: column; */
+    width: 100%;
 }
 
 /* Parrafos incio */
@@ -35,20 +39,28 @@ p#infoSesion{
 
 /* BUSCADOR  */
 .titleSearch{
+    margin: 50px 0 50px 100px;
     color: var(--dark-color);
+}
+
+.titleSearched {
+    padding: 30px;
+    width: 41rem;
+    font-size: 3.125rem;
+    border: 1px solid gray;
+    margin-bottom: 30px;
+    height: 8rem;
 }
 
 form{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 /* Lupita  */
 #imgSearch{
-    max-height: 40px; 
-    width: 40px;
+    width: 8%;
     margin: 10px;
     padding: 4px;
 }
@@ -60,9 +72,14 @@ input {
 
 /* CONTENEDOR PRINCIPAL DE ANUNCIOS PARA FLEX */
 .mainContainer{
+    margin: 50px 0 70px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.allContent{
+    width: 100%;
 }
 
 /* ANUNCIOS CARDS */
@@ -110,7 +127,7 @@ li.location{
 li.description{
     text-align: justify;
     margin-right: 8px;
-    overflow: hidden;
+    overflow: scroll;
     max-height: 210px;  
 }
 
@@ -146,4 +163,3 @@ a.link{
     }
     
   }
-  
