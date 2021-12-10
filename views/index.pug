@@ -1,9 +1,10 @@
-extends layout
-block content
-  .w3-container
-    head 
+doctype html
+html
+  head 
       link(rel="stylesheet", href="../styles/search.css")
-    body  
+      link(rel="stylesheet" href="../styles/normalize.css")
+      link(rel="stylesheet" href="../styles/styles.css")
+  body  
     if locals.user
       h4 Bienvenido/a #{user.nickname}
     else
@@ -44,4 +45,4 @@ block content
           p.tsrLabel ¿Preparado para encontrar tu primer empleo como desarrolador?
           p.tsrLabel En TSR seleccionaremos ofertas sin experiencia dentro de España. Tu sólo indica el lenguaje buscas
     
-  include ./footer.pug
+    include ./footer.pug
