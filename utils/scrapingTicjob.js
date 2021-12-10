@@ -43,7 +43,7 @@ const scrapingTicjob = async tag => {
             for (let link of links) {
                 linksArr.push(link.href);
             }
-            return linksArr;
+            return linksArr.slice(0, 4);
         });
 
         //·················LOOP EXTRACCIÓN DE DATOS·····················//

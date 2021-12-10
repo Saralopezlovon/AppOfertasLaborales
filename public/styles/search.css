@@ -1,13 +1,3 @@
-:root {
-    --purple-color: #7165e3;
-    --pink-color: #f61067;
-    --white-color: #f8f8f8;
-    --dark-color: #323031;
-    --card-border-radius: 30px;
-    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --btn-border-radius: 5px;
-}
-
 body{
     background-color: var(--white-color);
     font-family: 'Outfit', sans-serif;
@@ -75,14 +65,12 @@ input {
     justify-content: space-between;
 }
 
-/* ANUNCIOS */
+/* ANUNCIOS CARDS */
 div.allContent{
     margin: 5rem 10rem;
-    background-color: white;
     border-radius: var(--card-border-radius);
     box-shadow: var(--card-box-shadow);
     padding: 25px 4rem;
-    /* max-height: 700px; */
     min-height: 450px;
     flex: 25%;
     max-width: 80%;
@@ -126,8 +114,8 @@ li.description{
     max-height: 210px;  
 }
 
-li.info{
-    color: #F61067;
+a.link{
+    color: var(--pink-color);
 }
 
 #imgSave{

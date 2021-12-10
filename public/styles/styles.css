@@ -1,3 +1,13 @@
+:root {
+    --purple-color: #7165e3;
+    --pink-color: #f61067;
+    --white-color: #f8f8f8;
+    --dark-color: #323031;
+    --card-border-radius: 30px;
+    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --btn-border-radius: 5px;
+    }
+
 input {
     display: block;
 }
@@ -21,15 +31,6 @@ input {
     bottom: 0;
 }
 
-:root {
-    --purple-color: #7165E3;
-    --pink-color: #F61067;
-    --white-color: #FFFFFF;
-    --dark-color: #323031;
-    --card-border-radius: 4px;
-    --card-box-shadow: 10px;
-    --btn-border-radius: 4px;
-    }
 
 /* h1{
     background-color: yellow;
