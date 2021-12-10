@@ -61,7 +61,6 @@
     font-size:  1.500rem;
 }
 .description{    
-    /* definir una altura pequeña para forzar el scroll */
     height: 100px;
     overflow-y: scroll;
     width: 40rem;
@@ -88,7 +87,6 @@
     position: relative;
     top: -6px;
     left: -150px;
-
 }
 
 .btnDelete{
@@ -98,13 +96,65 @@
     left: 186px;
 }
 
+@media only screen and (max-width: 992px){
+    .titleSection{
+        margin-top: 76px;        
+        font-size:  7.875rem;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    
+    .sectionContainer{ 
+        width: 100rem;
+        padding: 0px 40px 0px 40px;      
+    }
 
+    .favoriteCard{
+        width: 86.5rem;
+    }
 
+    .imagen {        
+        height: 13rem;
+    }
 
+    .title {   
+        font-size: 3.95rem;
+        text-align: center;
+    }
 
+    .company {  
+        font-size: 2.75rem;
+        text-align: center;
+    }
 
+    .location{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+     
+    .description {
+        height: 182px;        
+        width: 71rem;     
+        font-size: 2.2rem;
+        text-align: justify;
+    }
 
-#footer{
-    bottom: 0px;
+    .date {
+        font-size: 2.35rem;
+        top: 7px;
+        left: -277px;
+    }
+
+    .link {
+        color: var(--pink-color);
+        font-size: 2.35rem; 
+        top: 4px;
+        left: -268px;
+    }
+
+    .btnDelete {
+        height: 3.5rem;
+        top: -27px;
+        left: 327px;
+    }
 }
-

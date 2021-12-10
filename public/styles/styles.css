@@ -12,12 +12,14 @@ input {
 }
   
 #footer {
-    bottom: 0;
     width: 100%;
-    height: 2.5rem;      
+    height: 2.5rem;
     background-color: rgba(0, 0, 0, 0.342);
     color: white;
-    text-align: center; 
+    text-align: center;
+    position: fixed;
+    padding-top: 6px;
+    bottom: 0; 
 }
 :root {
     --purple-color: #7165E3;
