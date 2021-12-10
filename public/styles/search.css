@@ -36,7 +36,7 @@ p#infoSesion{
 /* Parrafos incio */
 .tsrLabel{
     font-size: 3rem;
-    text-align: left;
+    margin: 2% 8% 2% 8%;
 }
 
 .tsrLabel:first-of-type{
@@ -139,10 +139,6 @@ li.info{
 
 /* DESKTOP */
 @media only screen and (min-width: 992px){
-    body {
-        background-color: gray;
-    }
-
     .mainContainer {
         display: flex;
     }
@@ -152,9 +148,14 @@ li.info{
     }
 
     .tsrLabel{
-        margin: 30px 30px 10px 40px;
+        margin-left: 8%;
         font-size: 3rem;
     }
 
+    .tsrLabel:first-of-type{
+        margin-top: 9%;
+        margin-right: 43%;
+    }
+    
   }
   
