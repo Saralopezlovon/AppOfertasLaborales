@@ -10,11 +10,12 @@ html
       link(href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" rel="stylesheet")
       title="Login"
 body
-   section.loginEmail
-      img.img(src="https://png.pngtree.com/png-vector/20210302/ourlarge/pngtree-letter-b-logo-png-image_2978120.jpg")
-      h1.titleSectionEmail Bienvenido administrador   
-      form.formLogin(action='/admin/login', method='POST')
-         input.email(type="email", name='userEmail', size="30", required, placeholder='Email')
-         input.password(type="password", name = 'userPassword', placeholder="Contraseña", required)
-         input.btnRegister(type='submit', value='Login')
+   div.bodyContainer
+      section.loginEmail
+         img.img(src="../assets/logopur.png")
+         h1.titleSectionEmail Bienvenido administrador   
+         form.formLogin(action='/admin/login', method='POST')
+            input.email(type="email", name='userEmail', size="30", required, placeholder='Email')
+            input.password(type="password", name = 'userPassword', placeholder="Contraseña", required)
+            input.btnRegister(type='submit', value='Login')
          
