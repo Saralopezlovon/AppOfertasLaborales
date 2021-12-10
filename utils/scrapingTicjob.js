@@ -25,7 +25,6 @@ const scrapingTicjob = async tag => {
             delay: 100,
         });
         // Click en el botón "Buscar"
-        await page.waitForTimeout(2000);
         await page.click('#main-search-button');
 
         // ----------------- SCRAPEANDO LA INFO -----------------
@@ -33,7 +32,6 @@ const scrapingTicjob = async tag => {
         await page.waitForSelector('#search-results-container', {
             visible: true,
         });
-        await page.waitForTimeout(2000);
 
         // Loop a los elementos título de la tarjeta para obtener href
         const allLinks = await page.evaluate(() => {
@@ -52,7 +50,6 @@ const scrapingTicjob = async tag => {
         for (let link of allLinks) {
             await page.goto(link);
             await page.waitForSelector('#job-title');
-            await page.waitForTimeout(2000);
 
             //Creamos un objeto para almacenar los datos
             const allAds = await page.evaluate(() => {

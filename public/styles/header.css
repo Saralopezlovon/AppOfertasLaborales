@@ -19,8 +19,7 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
+body {
     font-family: 'Outfit', sans-serif;
 }
 
@@ -34,6 +33,9 @@ a {
 
 /*-------------------- HEADER AND NAVBAR STYLES --------------------*/
 .header {
+    position: sticky;
+    top: 0;
+    background-color: var(--purple-color);
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -41,7 +43,6 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
 }
 
 /*-------------------- HAMBURGUER STYLES --------------------*/
@@ -60,45 +61,58 @@ a {
 }
 
 /*-------------------- OTHER STYLES --------------------*/
+.nav-logo {
+    margin-left: 30px;
+    width: 22%;
+}
+
 .nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-item {
-    margin-left: 5rem;
-}
-
 .nav-link {
-    font-size: 1.6rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    color: #475569;
+    color: white;
+    padding: 35px 30px;
+    transition: all 0.1s;
 }
 
 .nav-link:hover {
-    color: #482ff7;
-}
-
-.nav-logo {
-    font-size: 2.1rem;
-    font-weight: 500;
-    color: #482ff7;
+    background-color: var(--pink-color);
 }
 
 /*-------------------- MEDIA QUERIES --------------------*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
+    .nav-logo {
+        margin-left: 25px;
+        width: 35%;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 30px 0;
+    }
+
+    .navbar {
+        width: 100%;
+    }
+
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 5rem;
+        left: 100%;
+        top: 10rem;
         flex-direction: column;
-        background-color: #fff;
+        background-color: white;
         width: 100%;
         border-radius: 10px;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 100;
     }
 
     .nav-menu.active {
@@ -109,9 +123,22 @@ a {
         margin: 2.5rem 0;
     }
 
+    .nav-link {
+        color: var(--dark-color);
+        font-size: 2.6rem;
+    }
+
     .hamburger {
         display: block;
         cursor: pointer;
+        margin-right: 50px;
+    }
+
+    .bar {
+        background-color: white;
+        width: 80px;
+        height: 6px;
+        margin: 18px 0;
     }
 
     /*-------------------- X ANIMATION --------------------*/
@@ -120,10 +147,10 @@ a {
     }
 
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(37px) rotate(45deg);
     }
 
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg);
     }
 }

@@ -2,10 +2,11 @@ doctype html
 html
   head
     title= title
-    link(rel="stylesheet",href="../styles/normalize.css")
-    link(rel='stylesheet', href="/styles/header.css")
-    link(rel='stylesheet', href='../styles/styles.css')
-    link(rel='shortcut icon', href='//cdn2.auth0.com/styleguide/latest/lib/logos/img/favicon.png')
+    link(rel="stylesheet" href="../styles/normalize.css")
+    link(rel='stylesheet' href="/styles/header.css")
+    link(rel='stylesheet' href="/styles/profile.css")
+    link(rel='stylesheet' href='../styles/styles.css')
+    link(rel='shortcut icon' href='//cdn2.auth0.com/styleguide/latest/lib/logos/img/favicon.png')
     script(src="https://kit.fontawesome.com/5a088c105a.js" crossorigin="anonymous")
     script( defer src="../scripts/navBar.js")
     script( defer src="../scripts/scriptFavorites.js")
@@ -13,26 +14,21 @@ html
   body   
     header.header
       nav.navbar
-        a.nav-logo(href='#') TSR
-        ul.nav-menu
-          li.nav-item
-            a.nav-link(href="/") Home
+        a.nav-logo(href="/")
+          img.nav-logo(src="../assets/logo-w.svg" alt="Logo")
+        div.nav-menu
+          a.nav-link(href="/") Home
           if locals.user
-            li.nav-item
-              a.nav-link(href="/user") Perfil
-            li.nav-item
-              a.nav-link(href="/user/favorites") Favoritos
-            li.nav-item
-              a.nav-link(href="/logout") Desconectar
+            a.nav-link(href="/user") Perfil              
+            a.nav-link(href="/user/favorites") Favoritos              
+            a.nav-link(href="/logout") Desconectar              
           else
-            li.nav-item
-              a.nav-link(href="/login") Iniciar sesión
-            li.nav-item
-              a.nav-link(href="/admin/login") Soy admin
+            a.nav-link(href="/login") Iniciar sesión              
+            a.nav-link(href="/admin/login") Soy admin              
         .hamburger
           span.bar
           span.bar
           span.bar
   block content
 
-        
+

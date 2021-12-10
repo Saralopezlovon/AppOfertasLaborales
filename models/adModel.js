@@ -21,14 +21,6 @@ const adSchema = new mongoose.Schema({
         trim: true,
     },
 
-    salary: {
-        type: String,
-        required: [
-            true,
-            'La oferta de trabajo debe tener un salario establecido',
-        ],
-        trim: true,
-    },
     description: {
         type: String,
         required: [true, 'La oferta de trabajo debe tener una descripción'],
