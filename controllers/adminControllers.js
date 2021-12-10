@@ -71,6 +71,11 @@ const ads = {
         }
     }),
 
+    adminLogout: catchAsync(async (req, res) => {
+        res.clearCookie('jwtCookie');
+        return res.redirect('/');
+    }),
+
     // Renderiza la pag "dashboard"
     getDashboard: catchAsync(async (req, res) => {
         const allAds = await Ad.find();

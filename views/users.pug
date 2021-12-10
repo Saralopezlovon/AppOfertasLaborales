@@ -1,23 +1,40 @@
 doctype html
 html
    head
-      link(rel="stylesheet", href="../styles/styles.css")
-      link(rel="stylesheet",href="../styles/normalize.css")
-      title="Ofertas"
-   body
-      div 
-         h1 Editar usuario por id
-            form(action='/admin/users', method='POST')
-               input(type='text', name='idUpdate', placeholder='ID del usuario a editar')
-               input(type='text', name='name', placeholder='Nombre')
-               input(type='text', name='email', placeholder='Email')
-               input(type='text', name='password', placeholder='Contraseña')
-               input(type='text', name='avatar', placeholder='Imagen')
-               input(type='submit', value='Editar usuario')
-         h1 Borrar usuario por id
-            form(action='/admin/users', method='POST')
-               input(type='text', name='idDelete', placeholder='ID del usuario')
-               input(type='submit', value='Borrar usuario')
+      title= title
+      link(rel="stylesheet" href="../styles/normalize.css")
+      link(rel='stylesheet' href="/styles/header.css")
+      link(rel='stylesheet' href='../styles/dashboard.css')
+      link(rel='shortcut icon' href='//cdn2.auth0.com/styleguide/latest/lib/logos/img/favicon.png')
+      script(src="https://kit.fontawesome.com/5a088c105a.js" crossorigin="anonymous")
+      script( defer src="../scripts/navBar.js")
+      script( defer src="../scripts/backToTop.js")
+   body   
+      header.header
+         nav.navbar
+            a.nav-logo(href="/")
+               img.nav-logo(src="../assets/logo-w.svg" alt="Logo")
+            div.nav-menu
+               a.nav-link(href="/admin/dashboard") Administrar anuncios
+               a.nav-link(href="/admin/users") Administrar usuarios            
+               a.nav-link(href="/admin/logout") Desconectar          
+            .hamburger
+               span.bar
+               span.bar
+               span.bar
+      //- div 
+      //-    h1 Editar usuario por id
+      //-       form(action='/admin/users' method='POST')
+      //-          input(type='text' name='idUpdate' placeholder='ID del usuario a editar')
+      //-          input(type='text' name='name' placeholder='Nombre')
+      //-          input(type='text' name='email' placeholder='Email')
+      //-          input(type='text' name='password' placeholder='Contraseña')
+      //-          input(type='text' name='avatar' placeholder='Imagen')
+      //-          input(type='submit' value='Editar usuario')
+      //-    h1 Borrar usuario por id
+      //-       form(action='/admin/users' method='POST')
+      //-          input(type='text' name='idDelete' placeholder='ID del usuario')
+      //-          input(type='submit' value='Borrar usuario')
       div             
          h2 Listado de usuarios registrados en TSR:
          section.card
@@ -28,5 +45,4 @@ html
                p Creado: #{user.created}
                br
                hr
-      script
-      include ./footer.pug
+   include ./footer.pug

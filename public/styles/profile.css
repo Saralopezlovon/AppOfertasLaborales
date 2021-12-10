@@ -1,0 +1,135 @@
+/*-------------------- VARIABLES --------------------*/
+:root {
+    --purple-color: #7165e3;
+    --pink-color: #f61067;
+    --white-color: #f8f8f8;
+    --dark-color: #323031;
+    --card-border-radius: 30px;
+    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --btn-border-radius: 5px;
+}
+
+/*-------------------- GENERAL STYLES --------------------*/
+body {
+    scroll-behavior: smooth;
+    background-color: var(--white-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+input {
+    display: block;
+    border-style: none;
+    background-color: #f1f1f1;
+    border-radius: var(--btn-border-radius);
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 200;
+    font-size: 2rem;
+    height: 80px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    color: var(--dark-color);
+}
+
+span {
+    color: var(--purple-color);
+    font-weight: bold;
+}
+
+/*--------------------  --------------------*/
+.main__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px 0;
+    margin-top: 25px;
+}
+
+.user__welcome {
+    font-size: 3rem;
+}
+
+.user__img {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.user__email {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.user__info {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.section__title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 80px 0 40px;
+}
+
+.btnRegister {
+    padding: 15px;
+    width: 21.3rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    background-color: var(--pink-color);
+    color: white;
+    border-radius: var(--btn-border-radius);
+    margin-top: 35px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+    input {
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+
+    .user__welcome {
+        font-size: 1.85rem;
+    }
+
+    .user__img {
+        width: 12%;
+        margin-bottom: 20px;
+    }
+
+    .user__email {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+
+    .user__info {
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+
+    .section__title {
+        font-size: 2rem;
+        margin: 50px 0 40px;
+    }
+
+    .btnRegister {
+        width: 18rem;
+        height: 4rem;
+        font-size: 1.17rem;
+    }
+}

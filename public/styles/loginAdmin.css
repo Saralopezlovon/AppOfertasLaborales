@@ -1,37 +1,33 @@
-body{
+.bodyContainer {
     /* border: 1px solid red; */
-    width: 100%;
-    display:flex;
-    flex-direction: row;
+    height: 85vh;
+    display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 /*Login*/
 
-.loginEmail{
-    margin-top: 130px;
+.loginEmail {
     width: 26rem;
-    /* height: 24rem; */
     border: 1px solid #f3f1f1d7;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left:25px;
-    border-radius: var(--card-border-radius); 
-    
-    -webkit-box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
-    -moz-box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
-    box-shadow: 0px 0px 78px -6px rgba(166,166,166,0.84);
+    margin-left: 25px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 78px -6px rgba(166, 166, 166, 0.84);
+    -moz-box-shadow: 0px 0px 78px -6px rgba(166, 166, 166, 0.84);
+    box-shadow: 0px 0px 78px -6px rgba(166, 166, 166, 0.84);
 }
 
-.img{
+.img {
     margin-top: 35px;
-    margin-bottom: 35px;;
+    margin-bottom: 35px;
     width: 60px;
 }
 
-.titleSectionEmail{
+.titleSectionEmail {
     margin-top: 0px;
     font-family: 'Outfit', sans-serif;
     font-weight: 400;
@@ -40,89 +36,81 @@ body{
     margin-bottom: 30px;
 }
 
-.formLogin{
-    display:flex;
+.formLogin {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;  
+    width: 300px;
 }
 
-
-.email{
+.email {
     margin-bottom: 10px;
     padding: 10px;
     width: 20rem;
     font-family: 'Outfit', sans-serif;
     font-weight: 200;
     font-size: 1.125rem;
-    border:1px solid gray;
-    
+    border: 2px solid gray;
 }
 
-.password{
+.password {
     margin-bottom: 30px;
     padding: 10px;
     width: 20rem;
     font-family: 'Outfit', sans-serif;
     font-weight: 200;
     font-size: 1.125rem;
-    border:1px solid gray;
+    border: 2px solid gray;
 }
 
-.btnRegister{
+.btnRegister {
     padding: 15px;
     width: 21.3rem;
     font-family: 'Outfit', sans-serif;
     font-weight: 400;
     font-size: 18px;
     background-color: var(--pink-color);
-    color:white;
-    border-radius: var(--btn-border-radius); 
+    color: white;
+    border-radius: 4px;
     border: solid 1px var(--pink-color);
     margin-bottom: 35px;
     cursor: pointer;
-
 }
 
-@media only screen and (max-width: 65rem) { 
-   
-    .loginEmail{
-        margin-top: 130px;
+@media only screen and (max-width: 65rem) {
+    .loginEmail {
+        /* margin-top: 130px; */
         width: 95%;
-        margin-left:10px;
+        margin-left: 3px;
     }
 
-    .img{
+    .img {
         width: 250px;
     }
 
-    .titleSectionEmail{    
+    .titleSectionEmail {
         font-size: 4.119rem;
         color: var(--dark-color);
     }
 
-    .email{
+    .email {
         padding: 30px;
         width: 41rem;
         font-size: 3.125rem;
         border: 1px solid gray;
-        margin-bottom: 30px;        
+        margin-bottom: 30px;
     }
 
-    .password{
+    .password {
         padding: 30px;
         width: 41rem;
         font-size: 3.125rem;
         border: 1px solid gray;
     }
 
-    .btnRegister{
+    .btnRegister {
         padding: 30px;
         width: 45rem;
         font-size: 3.125rem;
-    
     }
-
-    
-
 }
