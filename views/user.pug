@@ -2,21 +2,28 @@ extends layout
 
 block content
   .main__container
-    h1.user__welcome Bienvenido #{allUserInfo.nickname}
-    br
-    img.user__img(src=allUserInfo.picture, alt = 'imagen')
-    p.user__email #{allUserInfo.displayName}
-    if allUserInfo.name 
-      p.user__info <span>Nombre:</span> #{allUserInfo.name}
-    if allUserInfo.lastname 
-      p.user__info <span>Apellidos:</span> #{allUserInfo.lastname}
-    if allUserInfo.favoritelanguage 
-      p.user__info <span>Lenguaje de programación favorito:</span> #{allUserInfo.favoritelanguage}     
-
-    h2.section__title Añade o edita la información de tu perfil 
-    form(action='/user' method='POST')
-      input(type='text' name='name' placeholder='Nombre') 
-      input(type='text' name='lastName' placeholder='Apellidos')
-      input(type='text' name='favoriteLanguage' placeholder='Lenguaje de programación preferido')
-      input.btnRegister(type='submit' value='Guardar información')
+    if social = false
+      h1.user__welcome Bienvenido #{allUserInfo.nickname}
+      br
+      img.user__img(src=allUserInfo.picture, alt = 'imagen')
+      p.user__email #{allUserInfo.displayName}
+      if allUserInfo.name 
+        p.user__info <span>Nombre:</span> #{allUserInfo.name}
+      if allUserInfo.lastname 
+        p.user__info <span>Apellidos:</span> #{allUserInfo.lastname}
+      if allUserInfo.favoritelanguage 
+        p.user__info <span>Lenguaje de programación favorito:</span> #{allUserInfo.favoritelanguage}
+      h2.section__title Añade o edita la información de tu perfil 
+      form(action='/user' method='POST')
+        input(type='text' name='name' placeholder='Nombre') 
+        input(type='text' name='lastName' placeholder='Apellidos')
+        input(type='text' name='favoriteLanguage' placeholder='Lenguaje de programación preferido')
+        input.btnRegister(type='submit' value='Guardar información')
+    if social = true
+      h1.user__welcome Bienvenido #{user.nickname}
+      br
+      img.user__img(src=user.picture, alt = 'imagen')
+      p.user__email #{user.displayName}
+      p.user__social Has iniciado sesión con un perfil social
+      p.user__social Para editar tus datos deberás hacerlo en la plataforma social.
   include ./footer.pug
