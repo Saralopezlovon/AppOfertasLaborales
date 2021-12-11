@@ -30,27 +30,32 @@ const userControllers = {
 
     getFavorites: catchAsync(async (req, res) => {
         const { ...userProfile } = req.user;
-        const fkIdUser = parseInt(userProfile.id.slice(6), 10);
-        const allFavorites = await pool.query(
-            `SELECT * FROM favorites WHERE fk_id_user = $1`,
-            [fkIdUser]
-        );        
-        res.status(200).render('favorites', {
-            allFavorites: allFavorites.rows,
-        });
+        let fkIdUser = userProfile.id;
+        if (fkIdUser.includes('google')) {
+            res.status(200).render('favorites');
+        } else {
+            fkIdUser = parseInt(userProfile.id.slice(6), 10);
+            const allFavorites = await pool.query(
+                `SELECT * FROM favorites WHERE fk_id_user = $1`,
+                [fkIdUser]
+            );
+            res.status(200).render('favorites', {
+                allFavorites: allFavorites.rows,
+            });
+        }
     }),
 
     deleteFavorite: catchAsync(async (req, res) => {
         const { ...userProfile } = req.user;
         const fkIdUser = parseInt(userProfile.id.slice(6), 10);
-        const {link} = req.body;
+        const { link } = req.body;
         const deleteFavorites = await pool.query(
             `DELETE FROM favorites WHERE fk_id_user =$1 AND link=$2`,
             [fkIdUser, link]
         );
         // console.log(deleteFavorites.rows);
         //res.redirect('/user/favorites');
-        res.json({"resultado":deleteFavorites.rows})
+        res.json({ resultado: deleteFavorites.rows });
     }),
 
     //Añadir información a un usuario
