@@ -1,3 +1,5 @@
+
+
 /*............BODY............*/
 
 .container{
@@ -95,13 +97,16 @@
 }
 
 @media only screen and (max-width: 992px){
-
+    .header{
+        width: 72vh;
+    }
 
     .titleSection{
-        margin-top: 76px;        
+        margin-top: 100px;        
         font-size:  5rem;
         text-align: center;
-        margin-bottom: 45px;
+        margin-bottom: 80px;
+        width: 72vh;
     }
     
     .sectionContainer{ 
@@ -141,20 +146,20 @@
 
     .date {
         font-size: 2.35rem;
-        top: 7px;
-        left: -277px;
+        top: 15px;
+        left: -413px;
     }
 
     .link {
         color: var(--pink-color);
         font-size: 2.35rem; 
-        top: 4px;
-        left: -268px;
+        top: 6px;
+        left: -403px;
     }
 
     .btnDelete {
         height: 3.5rem;
-        top: -27px;
-        left: 327px;
+        top: -50px;
+        left: 470px;
     }
 }
