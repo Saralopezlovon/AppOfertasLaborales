@@ -2,7 +2,7 @@
 // MÓDULOS
 const Ad = require('../models/adModel');
 const catchAsync = require('../utils/catchAsync');
-const scrapingTe = require('../utils/scrapingTe');
+//const scrapingTe = require('../utils/scrapingTe');
 const scrapingTicjob = require('../utils/scrapingTicjob');
 
 // HANDLER FUNCTIONS
