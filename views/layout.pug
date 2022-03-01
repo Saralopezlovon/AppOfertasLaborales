@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="../styles/normalize.css")
+    link(rel='stylesheet' href='../styles/styles.css')
+    link(rel='stylesheet' href="../styles/header.css")
+    link(rel='stylesheet' href="../styles/profile.css")
+    link(rel="stylesheet" href="../styles/loginAdmin.css")
+    link(rel='shortcut icon' href='../assets/logopnk.png')
+    link(rel='stylesheet' href="../styles/favorites.css")
+    link(rel="stylesheet", href="../styles/search.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" rel="stylesheet")
+    script( defer src="../scripts/navBar.js")
+    script( defer src="../scripts/scriptFavorites.js")
+    script( defer src="../scripts/scriptDeleteFavorites.js")
+  body   
+    header.header
+      nav.navbar
+        a.nav-logo(href="/")
+          img.nav-logo(src="../assets/logo-w.svg" alt="Logo")
+        div.nav-menu
+          a.nav-link(href="/") Home
+          if locals.user
+            a.nav-link(href="/user") Perfil              
+            a.nav-link(href="/user/favorites") Favoritos              
+            a.nav-link(href="/logout") Desconectar              
+          else
+            a.nav-link(href="/login") Iniciar sesión              
+            a.nav-link(href="/admin/login") Soy admin              
+        .hamburger
+          span.bar
+          span.bar
+          span.bar
+  block content
+
+

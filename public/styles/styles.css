@@ -1,0 +1,33 @@
+:root {
+    --purple-color: #7165e3;
+    --pink-color: #f61067;
+    --white-color: #f8f8f8;
+    --dark-color: #323031;
+    --card-border-radius: 30px;
+    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --btn-border-radius: 5px;
+}
+
+/* input {
+    display: block;
+} */
+
+/* #page-container {
+    position: relative;
+    min-height: 100vh;
+} */
+
+/* #content-wrap {
+    padding-bottom: 2.5rem;
+} */
+
+#footer {
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.342);
+    color: white;
+    text-align: center;
+    position: fixed;
+    padding-top: 6px;
+    bottom: 0;
+}

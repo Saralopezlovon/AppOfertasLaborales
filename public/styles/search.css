@@ -1,0 +1,165 @@
+body{
+    background-color: var(--white-color);
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+}
+
+
+
+p#infoSesion{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+/* Contenedor principal */
+#container {
+    margin: auto;
+    padding: 0 1rem;
+    /* display: flex; */
+    /* align-items: center;
+    flex-direction: column; */
+    width: 100%;
+}
+
+/* Parrafos incio */
+.tsrLabel{
+    font-size: 3rem;
+    margin: 2% 8% 2% 8%;
+}
+
+.tsrLabel:first-of-type{
+    margin-top: 100px;
+}
+
+/* BUSCADOR  */
+.titleSearch{
+    margin: 50px 0 50px 100px;
+    color: var(--dark-color);
+}
+
+.titleSearched {
+    padding: 30px;
+    width: 41rem;
+    font-size: 3.125rem;
+    border: 1px solid gray;
+    margin-bottom: 30px;
+    height: 8rem;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lupita  */
+#imgSearch{
+    width: 8%;
+    margin: 10px;
+    padding: 4px;
+}
+
+input {
+    width: 100%;
+    height: 4rem;
+}
+
+/* CONTENEDOR PRINCIPAL DE ANUNCIOS PARA FLEX */
+.mainContainer{
+    margin: 50px 0 70px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.allContent{
+    width: 100%;
+}
+
+/* ANUNCIOS CARDS */
+div.allContent{
+    margin: 5rem 10rem;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    padding: 25px 4rem;
+    min-height: 450px;
+    flex: 25%;
+    max-width: 80%;
+}
+
+ul{
+    padding:40px;
+}
+
+li{
+    list-style: none;
+}
+
+li.title{
+    font-weight: bolder;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.imagen{
+    width: auto;
+    max-height: 100px;
+    margin: 0% 8% 0% 8%;
+    border-radius: 100px;
+    margin: 0 40%;    
+}
+
+li.company{
+    text-align: center;
+}
+
+li.location{
+    text-align: right;
+    margin-right: 8px;
+}
+
+li.description{
+    text-align: justify;
+    margin-right: 8px;
+    overflow: scroll;
+    max-height: 210px;  
+}
+
+a.link{
+    color: var(--pink-color);
+}
+
+#imgSave{
+    max-height: 40px; 
+    width: 40px;
+    margin-left: 90%;    
+}
+  
+
+/* DESKTOP */
+@media only screen and (min-width: 992px){
+    .mainContainer {
+        display: flex;
+    }
+
+    .allContent{
+        align-content: space-around;
+    }
+
+    .tsrLabel{
+        margin-left: 8%;
+        font-size: 3rem;
+    }
+
+    .tsrLabel:first-of-type{
+        margin-top: 9%;
+        margin-right: 43%;
+    }
+    
+  }

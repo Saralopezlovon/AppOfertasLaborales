@@ -1,0 +1,156 @@
+/*-------------------- GOOGLE FONTS --------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap');
+
+/*-------------------- VARIABLES --------------------*/
+:root {
+    --purple-color: #7165e3;
+    --pink-color: #f61067;
+    --white-color: #f8f8f8;
+    --dark-color: #323031;
+    --card-border-radius: 30px;
+    --card-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --btn-border-radius: 5px;
+}
+
+/*--------------------  --------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-------------------- HEADER AND NAVBAR STYLES --------------------*/
+.header {
+    position: sticky;
+    top: 0;
+    background-color: var(--purple-color);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*-------------------- HAMBURGUER STYLES --------------------*/
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+/*-------------------- OTHER STYLES --------------------*/
+.nav-logo {
+    margin-left: 30px;
+    width: 22%;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: white;
+    padding: 35px 30px;
+    transition: all 0.1s;
+}
+
+.nav-link:hover {
+    background-color: var(--pink-color);
+}
+
+/*-------------------- MEDIA QUERIES --------------------*/
+@media only screen and (max-width: 992px) {
+    .nav-logo {
+        margin-left: 25px;
+        width: 35%;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 30px 0;
+    }
+
+    .navbar {
+        width: 100%;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: 100%;
+        top: 10rem;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 100;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .nav-link {
+        color: var(--dark-color);
+        font-size: 2.6rem;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        margin-right: 50px;
+    }
+
+    .bar {
+        background-color: white;
+        width: 80px;
+        height: 6px;
+        margin: 18px 0;
+    }
+
+    /*-------------------- X ANIMATION --------------------*/
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(37px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+}

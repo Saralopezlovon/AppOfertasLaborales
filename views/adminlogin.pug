@@ -1,0 +1,11 @@
+extends layout
+
+block content
+   div.bodyContainer
+      section.loginEmail
+         img.img(src="../assets/logopur.png")
+         h1.titleSectionEmail Bienvenido administrador   
+         form.formLogin(action='/admin/login' method='POST')
+            input.email(type="email" name='userEmail' size="30", required, placeholder='Email')
+            input.password(type="password", name = 'userPassword' placeholder="Contraseña", required)
+            input.btnRegister(type='submit' value='Login')
