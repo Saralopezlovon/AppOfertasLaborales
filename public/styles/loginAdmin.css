@@ -78,13 +78,23 @@
 }
 
 @media only screen and (max-width: 65rem) {
+    .bodyContainer { 
+        width: 73vh;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .loginEmail {
         /* margin-top: 130px; */
         width: 95%;
         margin-left: 3px;
+        margin-right: 28px;
+        height: 50vh;
     }
 
     .img {
+        padding-top: 90px;
         width: 250px;
     }
 
@@ -109,8 +119,9 @@
     }
 
     .btnRegister {
-        padding: 30px;
-        width: 45rem;
-        font-size: 3.125rem;
+        padding: 20px;
+        width: 45rem;        
+        font-size: 3.125rem; 
+        height: 7rem;
     }
 }
