@@ -84,10 +84,10 @@ span {
 }
 
 .btnRegister {
-    padding: 15px;
-    width: 21.3rem;
+    padding: 30px;
+    width: 45rem;
     font-family: 'Outfit', sans-serif;
-    font-weight: 400;
+    font-weight: 400;  
     font-size: 2rem;
     background-color: var(--pink-color);
     color: white;
