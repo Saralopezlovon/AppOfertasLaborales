@@ -10,15 +10,15 @@ También existe el rol de "Administrador" quien podrá crear anuncios que se gua
 
 ![imagen](https://github.com/Saralopezlovon/AppOfertasLaborales/blob/main/public/assets/AppJob.gif)
 
-## Construido con 🛠️
+## Desarrollado con 🛠️
 
 * Arquitectura Server-Side-Rendering:
 
     - Back-end
         - Node
         - Express
-        - Mongoose - BBDD no relacional para gestionar los anuncios que se añaden
-        - Postgres - BBDD relacional para gestionar los usuarios administradores
+        - MongoDB - BBDD NoSQL para gestionar los anuncios que se añaden
+        - PostgreSQL - BBDD SQL para gestionar los usuarios administradores
         - Autentificación con Auth0
         - Encriptación de contraseñas con bcrypt
         - Sesiones y permisos con coockie-parser y jsonwebtoken
