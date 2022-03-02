@@ -8,11 +8,11 @@ Los usuarios que se registren podrán guardar los anuncios seleccionados en el a
 
 También existe el rol de "Administrador" quien podrá crear anuncios que se guardarán en una BBDD y se mostrarán en las búsquedas.
 
-![imagen](https://github.com/Saralopezlovon/AppOfertasLaborales/blob/main/public/assets/webNoticias.gif)
+![imagen](https://github.com/Saralopezlovon/AppOfertasLaborales/blob/main/public/assets/AppJob.gif)
 
 ## Construido con 🛠️
 
-* Arquitectura Server-Side-Rendering
+* Arquitectura Server-Side-Rendering:
 
     - Back-end
         - Node
